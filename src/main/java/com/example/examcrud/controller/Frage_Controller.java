@@ -13,11 +13,11 @@ import java.util.List;
 public class Frage_Controller {
 
     @Autowired
-    Frage_Service frage_service;
+    Frage_Service frageService;
 
 //    @CrossOrigin(origins = "http://localhost:5173") // Später für die richtige Connection zum Port
-//    @GetMapping("/{themengebietId}")
-//    public List<FrageDTO> getAllFragenVonThemengebietId(@PathVariable int themengebietId){
-//        return frage_service.getAllFragenVonThemengebietId(themengebietId);
-//    }
+    @GetMapping("/{themengebietId}")
+    public List<FrageDTO> getAllFragenVonThemengebietId(@PathVariable int themengebietId){
+        return frageService.getAllFragenVonThemengebietId(themengebietId);
+    }
 }
