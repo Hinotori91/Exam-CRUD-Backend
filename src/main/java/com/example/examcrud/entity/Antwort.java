@@ -2,14 +2,14 @@ package com.example.examcrud.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Antwort {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Antwort {
     @JoinColumn(name = "id_Frage")
     @JsonManagedReference
     private Frage frage;
-//    private boolean true;
+    private boolean richtig = true;
 
     //// CONSTRUCTOR ////
 
