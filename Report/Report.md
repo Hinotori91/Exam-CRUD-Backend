@@ -1,4 +1,5 @@
 % Report LaMa (Learn and Management App)
+![](./img/Lama.png)
 
 
 ---
