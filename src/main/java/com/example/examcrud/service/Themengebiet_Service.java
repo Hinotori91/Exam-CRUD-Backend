@@ -1,10 +1,16 @@
 package com.example.examcrud.service;
 
+import com.example.examcrud.dto.FrageDTO;
+import com.example.examcrud.dto.Request_ThemengebetDTO;
+import com.example.examcrud.dto.Response_ThemengebietDTO;
 import com.example.examcrud.dto.ThemengebietDTO;
+import com.example.examcrud.entity.Frage;
 import com.example.examcrud.entity.Themengebiet;
 import com.example.examcrud.repository.Themengebiet_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +31,46 @@ public class Themengebiet_Service {
         return tgList;
     }
 
-    public Optional<Themengebiet> getSingleThemengebiet(int themengebietId){
-        return themengebietRepository.findById(themengebietId);
+    public Response_ThemengebietDTO getSingleThemengebiet(int themengebietId){
+        Optional<Themengebiet> themengebietOptional = themengebietRepository.findById(themengebietId);
+        List<FrageDTO> frageDTOList = new ArrayList<>();
+
+        if (themengebietOptional.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        Themengebiet themengebiet = themengebietOptional.get();
+
+        List<Frage> frageList = themengebiet.getFragenListe();
+
+        for (Frage frage: frageList) {
+            frageDTOList.add(FrageDTO.builder()
+                            .id(frage.getId())
+                            .name(frage.getName())
+                    .build());
+
+        }
+
+        return Response_ThemengebietDTO.builder()
+                .id(themengebiet.getId())
+                .name(themengebiet.getName())
+                .fragenListe(frageDTOList)
+                .build();
+    }
+
+    public Response_ThemengebietDTO addNewThemengebiet(Request_ThemengebetDTO requestThemengebetDTO) {
+        Themengebiet themengebiet = Themengebiet.builder()
+                .id(requestThemengebetDTO.getId())
+                .name(requestThemengebetDTO.getName())
+//                .fragenListe(requestThemengebetDTO.getFragenListe())
+//                .fach(requestThemengebetDTO.getFachId())
+                .build();
+        themengebietRepository.save(themengebiet);
+
+        return Response_ThemengebietDTO.builder()
+                .id(themengebiet.getId())
+                .name(themengebiet.getName())
+//                .fragenListe(themengebiet.getFragenListe())
+//                .fachId(themengebiet.getFach().getId())
+                .build();
     }
 }

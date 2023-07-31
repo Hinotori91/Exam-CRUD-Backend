@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" modified="2023-07-31T12:58:50.456Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="Z1jOo_FDzfJMdFddSEI8" version="21.6.5" type="device">
+  <diagram name="Seite-1" id="1_mawstySJryVtgQIAUU">
+    <mxGraphModel dx="1354" dy="733" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9tVKPni9yBC4lUUX27Fa-2" target="9tVKPni9yBC4lUUX27Fa-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-2" value="Klick auf den Lernen- Button auf der Navbar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="138" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-3" value="Bestehendes Themengebiet bearbeiten" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="297" y="40" width="233" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9tVKPni9yBC4lUUX27Fa-5" target="9tVKPni9yBC4lUUX27Fa-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-5" value="Langen Klick auf das Fach das bearbeitet werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="283" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9tVKPni9yBC4lUUX27Fa-7" target="9tVKPni9yBC4lUUX27Fa-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-7" value="Kontext-Menü öffnet sich" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="373" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9tVKPni9yBC4lUUX27Fa-9" target="9tVKPni9yBC4lUUX27Fa-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-9" value="Bearbeiten auf dem Kontext-Menü auswählen" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="461" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9tVKPni9yBC4lUUX27Fa-11" target="9tVKPni9yBC4lUUX27Fa-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-11" value="Veränderung von Anzeige zu Eingabefeld wechseln" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="547" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-12" value="Veränderung zurück auf Anzeige" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="344" y="708" width="130" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9tVKPni9yBC4lUUX27Fa-14" target="9tVKPni9yBC4lUUX27Fa-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-14" value="Speichern" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="630" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9tVKPni9yBC4lUUX27Fa-15" target="9tVKPni9yBC4lUUX27Fa-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tVKPni9yBC4lUUX27Fa-15" value="Klick auf das Fach wo das Themengebiet hinterlegt ist" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="195" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

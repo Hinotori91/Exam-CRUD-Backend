@@ -17,23 +17,13 @@ public class Fach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String name;
 
     // Ein Fach kann mehrere Fragen haben!
-    @OneToMany(mappedBy = "faecher")
-    @JsonBackReference
+    @OneToMany(mappedBy = "faecher", cascade = CascadeType.REMOVE)
     private List<Frage> frageListe;
 
-//    // Mehrere Fächer können mehrere Themengebiete haben! (Hilfstabelle Fach_Themengebiet)
-//    @OneToMany(mappedBy = "fach")
-//    @JsonBackReference
-//    private List<Fach_Themengebiet> themengebietList;
-
     // Ein Fach kann mehrere Themengebiete haben
-    @OneToMany(mappedBy = "fach")
+    @OneToMany(mappedBy = "fach", cascade = CascadeType.REMOVE)
     private List<Themengebiet> themengebietListe;
-
-    //// CONSTRUCTOR ////
-
 }

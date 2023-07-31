@@ -3,10 +3,10 @@ package com.example.examcrud.controller;
 import com.example.examcrud.dto.FachDTO;
 import com.example.examcrud.dto.Request_FachDTO;
 import com.example.examcrud.dto.Response_FachDTO;
-import com.example.examcrud.repository.Fach_Repository;
 import com.example.examcrud.service.Fach_Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,24 +18,71 @@ public class Fach_Controller {
     @Autowired
     Fach_Service fachService;
 
+    /*
+     * Erstellung eines neuen Fachs
+     */
     @PostMapping
-    public Response_FachDTO addNewFach(@RequestBody Request_FachDTO requestFachDTO){
-        return fachService.addNewFach(requestFachDTO);
+    public ResponseEntity<?> addNewFach(@RequestBody FachDTO fachDTO) {
+        Response_FachDTO responseFachDTO;
+        try {
+            responseFachDTO = fachService.addNewFach(fachDTO);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(responseFachDTO, HttpStatus.OK);
     }
 
+    /*
+     * Ausgabe aller bestehenden Fächer
+     */
     @GetMapping
-    public List<Response_FachDTO> getAllFaecher(){
-        return fachService.getAllFaecher();
+    public ResponseEntity<?> getAllFaecher() {
+        List<Response_FachDTO> responseFachDTOList;
+        try {
+            responseFachDTOList = fachService.getAllFaecher();
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(responseFachDTOList, HttpStatus.OK);
     }
 
+    /*
+     * Ausgabe eines bestimmten Fachs
+     */
     @GetMapping("/{fachId}")
-    public Response_FachDTO getOneFach(@PathVariable int fachId){
-        return fachService.getOneFach(fachId);
+    public ResponseEntity<?> getOneFach(@PathVariable int fachId) {
+        Response_FachDTO responseFachDTO;
+        try {
+            responseFachDTO = fachService.getOneFach(fachId);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(responseFachDTO, HttpStatus.OK);
     }
 
-    @PutMapping("/{fachId}/{themengebietId}")
-    public Response_FachDTO connectThemengebietToFach(@PathVariable int fachId, @PathVariable int themengebietId){
-        return fachService.connectThemengebietToFach(fachId,themengebietId);
+    /*
+     * Bearbeitung eines bestimmten Fachs
+     */
+    @PutMapping("/{fachId}")
+//    public Response_FachDTO updateOneFach(@PathVariable int fachId) {
+//        return fachService.updateOneFach(fachId);
+//    }
+    public ResponseEntity<?> updateOneFach(@PathVariable int fachId, @RequestBody FachDTO fachDTO){
+        Response_FachDTO responseFachDTO;
+        try {
+            responseFachDTO = fachService.updateOneFach(fachId, fachDTO);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(responseFachDTO, HttpStatus.OK);
     }
 
+
+    /*
+     * Löschung eines bestimmten Fachs
+     */
+    @DeleteMapping("/{fachId}")
+    public Response_FachDTO deleteOneFach(@PathVariable int fachId) {
+        return fachService.deleteFach(fachId);
+    }
 }

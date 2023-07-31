@@ -1,15 +1,10 @@
 package com.example.examcrud.service;
 
-import com.example.examcrud.dto.FrageDTO;
-import com.example.examcrud.dto.Request_FachDTO;
-import com.example.examcrud.dto.Response_FachDTO;
-import com.example.examcrud.dto.ThemengebietDTO;
+import com.example.examcrud.dto.*;
 import com.example.examcrud.entity.Fach;
-import com.example.examcrud.entity.Fach_Themengebiet;
 import com.example.examcrud.entity.Frage;
 import com.example.examcrud.entity.Themengebiet;
 import com.example.examcrud.repository.Fach_Repository;
-import com.example.examcrud.repository.Fach_Themengebiet_Repository;
 import com.example.examcrud.repository.Frage_Repository;
 import com.example.examcrud.repository.Themengebiet_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,14 +22,11 @@ public class Fach_Service {
     Fach_Repository fachRepository;
     @Autowired
     Themengebiet_Repository themengebietRepository;
-
-//    @Autowired
-//    Fach_Themengebiet_Repository fachThemengebietRepository;
     @Autowired
     Frage_Repository frageRepository;
 
-    public Response_FachDTO addNewFach(Request_FachDTO requestFachDTO) {
-        Fach fach = Fach.builder().name(requestFachDTO.getName()).build();
+    public Response_FachDTO addNewFach(FachDTO fachDTO) {
+        Fach fach = Fach.builder().name(fachDTO.getName()).build();
         fachRepository.save(fach);
 
         return Response_FachDTO.builder()
@@ -97,35 +89,18 @@ public class Fach_Service {
         }
     }
 
-    public Response_FachDTO connectThemengebietToFach(int fachId, int themengebietId) {
+    public Response_FachDTO updateOneFach(int fachId, FachDTO fachDTO) {
         Optional<Fach> fach = fachRepository.findById(fachId);
-        Optional<Themengebiet> themengebiet = themengebietRepository.findById(themengebietId);
-        List<ThemengebietDTO> themengebietDTOList = new ArrayList<>();
 
-        if (fach.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        } else {
-            if (themengebiet.isEmpty()) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-            } else {
-                fach.get().getThemengebietListe().add(themengebiet.get());
-                fachRepository.save(fach.get());
-
-                ThemengebietDTO themengebietDTO = ThemengebietDTO.builder()
-                        .id(themengebietId)
-                        .name(themengebiet.get().getName())
-                        .build();
-
-                themengebietDTOList.add(themengebietDTO);
-
-
-                Fach fach2 = fach.get();
-                return Response_FachDTO.builder()
-                        .id(fach2.getId())
-                        .name(fach2.getName())
-                        .themengebiet(themengebietDTOList)
-                        .build();
-            }
+        if (fach.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
+        //TODO
+
+        return Response_FachDTO.builder().build();
+    }
+
+    public Response_FachDTO deleteFach(int fachId) {
+        return Response_FachDTO.builder().build();
     }
 }

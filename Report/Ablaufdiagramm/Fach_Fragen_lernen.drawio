@@ -1,0 +1,130 @@
+<mxfile host="app.diagrams.net" modified="2023-07-31T12:41:32.153Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="VsbBbuMlbHBil7EECj2k" version="21.6.5" type="device">
+  <diagram name="Seite-1" id="sxWdA_HcUdmuONd96Rr6">
+    <mxGraphModel dx="1693" dy="916" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-3" target="8TJPjMiYcZoQ3s6USB4q-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-3" value="Klick auf den Lernen- Button auf der Navbar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="138" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-4" value="Alle Fragen von einem Fach lernen/spielen" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="277" y="40" width="273" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-6" target="8TJPjMiYcZoQ3s6USB4q-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-6" value="Klick auf den Play-Button neben dem Fach oder Themengebiet" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="205" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-8" target="8TJPjMiYcZoQ3s6USB4q-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-8" value="Popup Feld wo die Menge der zu lernenden Fragen angegeben werden kann oder alle ausgewählt werden" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="298" y="305" width="222" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-10" target="8TJPjMiYcZoQ3s6USB4q-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-10" value="Klick auf den Bestätigungsbutton" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="393" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-12" target="8TJPjMiYcZoQ3s6USB4q-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-12" value="Frage wird ausgelesen und dargestellt" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="582" y="702" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-13" value="Zurück zum vorherigen Screen" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="584" y="1156" width="116" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-16" target="8TJPjMiYcZoQ3s6USB4q-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-16" target="8TJPjMiYcZoQ3s6USB4q-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-16" target="8TJPjMiYcZoQ3s6USB4q-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-16" value="Wurde die Frage richtig beantwortet?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="561" y="811" width="162" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-18" value="- Punkt für diese Frage" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="754" y="842" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-20" value="+ Punkt für diese Frage" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="411" y="842" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-22" value="Ja" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="536" y="833" width="35" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-23" value="Nein" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="713" y="833" width="35" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-28" target="8TJPjMiYcZoQ3s6USB4q-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-28" value="Fragen mit einem niedrigen Score werden zuerst ausgelesen" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="578" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-30" target="8TJPjMiYcZoQ3s6USB4q-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-30" target="8TJPjMiYcZoQ3s6USB4q-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-30" value="&lt;div&gt;Hat die Frage&amp;nbsp;&lt;/div&gt;&lt;div&gt;die ausgelesen wurde&amp;nbsp;&lt;/div&gt;&lt;div&gt;einen durchgehenden&lt;/div&gt;&lt;div&gt;Score von 15&amp;nbsp;&lt;/div&gt;&lt;div&gt;oder mehr?&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="308" y="668" width="202" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-32" value="Frage wird nach hinten gereiht und später ausgegeben" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="127" y="702" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-35" value="Ja" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="270" y="698" width="35" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-37" value="Nein" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="526" y="698" width="35" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-39" value="4:1 Verhältnis,4 Fragen die einen Schlechten Score haben zu 1 Frage die einen guten Score hat." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="470" y="648" width="290" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-41" target="8TJPjMiYcZoQ3s6USB4q-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-41" value="Fragen werden aus der Datenbank ausgewählt und in eine Liste gespeichert" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="334" y="480" width="151" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-46" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-44" target="8TJPjMiYcZoQ3s6USB4q-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-44" value="Statistik und Lernerfolg wird ausgegeben" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="514" y="1070" width="256" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-49" target="8TJPjMiYcZoQ3s6USB4q-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8TJPjMiYcZoQ3s6USB4q-49" target="8TJPjMiYcZoQ3s6USB4q-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="900.0000000000002" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="900" y="994" />
+              <mxPoint x="900" y="732" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-49" value="Weitere Frage vorhanden?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="572" y="954" width="138" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-53" value="Ja" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="713" y="960" width="35" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8TJPjMiYcZoQ3s6USB4q-55" value="Nein" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="650" y="1034" width="35" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

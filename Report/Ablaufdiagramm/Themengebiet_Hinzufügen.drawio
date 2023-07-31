@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" modified="2023-07-31T12:50:39.968Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="3h3VYbh8TdFQiWM_cgUZ" version="21.6.5" type="device">
+  <diagram name="Seite-1" id="7qA_0tNOvKlwm0ozx7_L">
+    <mxGraphModel dx="1354" dy="1902" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Sn3YYOHSnlVI94HygTRK-2" target="Sn3YYOHSnlVI94HygTRK-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-2" value="Klick auf den Lernen- Button auf der Navbar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="-1070" width="138" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-3" value="Neues Themengebiet anlegen" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="357" y="-1110" width="193" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Sn3YYOHSnlVI94HygTRK-5" target="Sn3YYOHSnlVI94HygTRK-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-5" value="Klick auf den Hinzufügen (+) Button " style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="389" y="-851" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Sn3YYOHSnlVI94HygTRK-7" target="Sn3YYOHSnlVI94HygTRK-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-7" value="Popup mit Eingabefeld für den Namen des Fachs" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="389" y="-751" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Sn3YYOHSnlVI94HygTRK-9" target="Sn3YYOHSnlVI94HygTRK-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-9" value="Klick auf den Speichern Button" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="389" y="-663" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Sn3YYOHSnlVI94HygTRK-11" target="Sn3YYOHSnlVI94HygTRK-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-11" value="Speicherung ins Backend mit Post-Request" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="389" y="-577" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-12" value="Automatische Weiterleitung auf die Übersichtsseite" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="384" y="-487" width="130" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Sn3YYOHSnlVI94HygTRK-13" target="Sn3YYOHSnlVI94HygTRK-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Sn3YYOHSnlVI94HygTRK-13" value="Klick auf das Fach wo das Themengebiet hinzugefügt werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="379" y="-955" width="141" height="70.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" modified="2023-07-31T11:13:44.954Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="JG3GA8KFmNu-duivoZVo" version="21.6.5" type="device">
+  <diagram name="Seite-1" id="LOxFFRxM0oj1bpOZTaFu">
+    <mxGraphModel dx="1593" dy="862" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MJvmzwcrtEve5PXsY3Um-2" target="MJvmzwcrtEve5PXsY3Um-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-2" value="Klick auf den Lernen- Button auf der Navbar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="138" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-3" value="Bestehendes Fach bearbeiten" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="317" y="40" width="193" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MJvmzwcrtEve5PXsY3Um-5" target="MJvmzwcrtEve5PXsY3Um-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-5" value="Langen Klick auf das Fach das bearbeitet werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="205" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MJvmzwcrtEve5PXsY3Um-7" target="MJvmzwcrtEve5PXsY3Um-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-7" value="Kontext-Menü öffnet sich" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="305" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MJvmzwcrtEve5PXsY3Um-9" target="MJvmzwcrtEve5PXsY3Um-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-9" value="Bearbeiten auf dem Kontext-Menü auswählen" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="393" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MJvmzwcrtEve5PXsY3Um-11" target="MJvmzwcrtEve5PXsY3Um-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-11" value="Veränderung von Anzeige zu Eingabefeld wechseln" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="479" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-12" value="Veränderung zurück auf Anzeige" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="344" y="640" width="130" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MJvmzwcrtEve5PXsY3Um-13" target="MJvmzwcrtEve5PXsY3Um-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MJvmzwcrtEve5PXsY3Um-13" value="Speichern" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="562" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

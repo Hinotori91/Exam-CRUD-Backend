@@ -1,11 +1,11 @@
 package com.example.examcrud.controller;
 
+import com.example.examcrud.dto.Request_ThemengebetDTO;
+import com.example.examcrud.dto.Response_ThemengebietDTO;
 import com.example.examcrud.dto.ThemengebietDTO;
 import com.example.examcrud.service.Themengebiet_Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,16 +21,13 @@ public class Themengebiet_Controller {
         return themengebietService.getAllThemengebiete();
     }
 
-//    @GetMapping
-//    public ThemengebietDTO getSingleThemengebiet(int themengebietId){
-//        try {
-//            themengebietService.getSingleThemengebiet(themengebietId);
-//        }catch (Exception e){
-//            System.out.println(e);
-//        }
-//
-//
-//
-//        return themengebietService.getSingleThemengebiet(themengebietId);
-//    }
+    @GetMapping("/{themengebietId}")
+    public Response_ThemengebietDTO getSingleThemengebiet(int themengebietId){
+        return themengebietService.getSingleThemengebiet(themengebietId);
+    }
+
+    @PostMapping
+    public Response_ThemengebietDTO addNewThemengebiet(@RequestBody Request_ThemengebetDTO requestThemengebetDTO){
+        return themengebietService.addNewThemengebiet(requestThemengebetDTO);
+    }
 }

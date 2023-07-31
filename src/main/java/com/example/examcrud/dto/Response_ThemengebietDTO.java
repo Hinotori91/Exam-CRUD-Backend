@@ -1,5 +1,6 @@
 package com.example.examcrud.dto;
 
+import com.example.examcrud.entity.Frage;
 import lombok.*;
 
 import java.util.List;
@@ -9,12 +10,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FrageDTO {
-
+public class Response_ThemengebietDTO {
     private int id;
     private String name;
-    private int faecherId;
-    private int themengebietId;
-//    private List<AntwortDTO> antwortListe;
-
+    private List<FrageDTO> fragenListe;
+    private int fachId;
 }

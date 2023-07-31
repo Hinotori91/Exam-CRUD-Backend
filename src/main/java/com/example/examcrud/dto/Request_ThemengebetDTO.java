@@ -9,12 +9,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FrageDTO {
-
+public class Request_ThemengebetDTO {
     private int id;
     private String name;
-    private int faecherId;
-    private int themengebietId;
-//    private List<AntwortDTO> antwortListe;
-
+    private List<FrageDTO> fragenListe;
+    private int fachId;
 }
