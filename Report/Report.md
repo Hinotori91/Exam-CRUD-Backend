@@ -1,25 +1,18 @@
 % Report LaMa (Learn and Management App)
 
 
-# W-Fragen
-Wer
-Wo
-Wann
-Was
-Wieso
-
 ---
 - [X] Titel
-- [ ] Projektdefinition 
-- [ ] Anforderungsanalyse
-  - [ ] Muss, 
-  - [ ] Soll, 
-  - [ ] Kann Ziele
-- [ ] UseCases
+- [x] Projektdefinition 
+- [x] Anforderungsanalyse
+  - [x] Muss, 
+  - [x] Soll, 
+  - [x] Kann Ziele
+- [x] UseCases
   - 5 Uscases für die APP
-  - [ ] Aktivitätsdiagramme
-- [ ] ER - Diagramme
-  - [ ] Datenbank Modell
+  - [x] Aktivitätsdiagramme
+- [x] ER - Diagramme für Datenbank
+  - [x] Datenbank Modell
 - [ ] Timeline
 
 [//]: # (# Zusammenfassung)
@@ -36,15 +29,37 @@ Mit dieser API biete ich die Möglichkeit für Schulen, Universitäten und diver
 Es ist möglich, Fragen und Antworten anzulegen und mit Fächern UND Themengebieten zu kombinieren, um die Möglichkeit zu bieten, Fragen zu gewissen Fächern allgemein oder spezifiziert zu einem gewissen Themengebiet auszulesen.
 Zusätzlich gibt es auch ein Punktesystem, womit man auch anhand einer Statistik auslesen kann, wie der Lernerfolg ist, welche Fragen gut beantwortet wurden und welche Fragen besser geübt werden müssen.
 
-# Hauptteil
-## Anforderungsanalyse
-### Muss Ziele
-### Kann Ziele
-### Soll Ziele
+# Anforderungsanalyse
+## Muss Ziele
+- Fach
+  - Fach hinzufügen
+  - Fach bearbeiten
+  - Fach löschen
+- Themengebiet
+  - Themengebiet hinzufügen
+  - Themengebiet bearbeiten
+  - Thmengebiet löschen
+- Frage
+  - Frage hinzufügen
+  - Frage bearbeiten
+  - Frage löschen
+- Antwort
+  - Antwort hinzufügen
+  - Antwort bearbeiten
+  - Einzelne Antworten löschen
+
+- Algorithmus für die unregelmäßige Ausgabe bereits oft richtig beantworteter Fragen
+## Kann Ziele
+- Statistik über Lernerfolg nach einer Lern-Spiel-Runde
+- Generelle Auswertung der Statisiken aller Fragen/Fächer/Themengebiete
+  
+
+# Aktivitätsdiagramm / Ablaufdiagramm
+![](./Ablaufdiagramm/AblaufDiagramm.drawio.png)
+
 ## UseCases
-##### Beschreibung:
 ###### Fach
-Man kann sowohl Fächer anlegen und bearbeiten als auch in die einzelnen Fächer hinein gehen und die Themengebiete sehen. Zusätzlich ist es möglich alle Fragen die in diesem Fach hinterlegt sind zu lernen/spielen.
+Man kann sowohl Fächer anlegen, bearbeiten und löschen als auch in die einzelnen Fächer hinein gehen und die Themengebiete sehen. Zusätzlich ist es möglich alle Fragen die in diesem Fach hinterlegt sind zu lernen/spielen.
 
 - `Neues Fach Anlegen:`
   - Mit einem Klick auf den '+' Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo der Name des Fachs eingegeben werden soll. Nach bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert.
@@ -55,6 +70,12 @@ Man kann sowohl Fächer anlegen und bearbeiten als auch in die einzelnen Fächer
   - Mit einem langen Klick auf das Fach, öffnet sich ein Kontext Menü wo ein 'Bearbeiten' Button erscheint. Mit dem Klick auf den Button, Verändert sich die Anzeige dieses einen Fachs auf ein Eingabefeld um den Namen des Fachs zu verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, wird der neue Wert in die Datenbank geupdated und das Eingabefeld wird wieder zur normalen anzeige.
 
 ![](./Ablaufdiagramm/Fach_bearbeiten.drawio.png)
+
+- `Bestehendes Fach löschen:`
+  - Mit einem langen Klick auf das Fach, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob man dieses Fach wirklich löschen möchte.
+  - Bestätigt man dieses Popup Fenster, werden sowohl Fach als auch alle Themengebiete und alle Fragen mit deren Antworten gelöscht.
+
+![](./Ablaufdiagramm/Fach_Löschen.drawio.png)
 
 - `Fragen zu einem Fach lernen:`
   - Mit einem Klick auf den Play-Button erscheint ein Popup-Feld wo gefragt wird wie viele Fragen aus dem Fragenpool ausgewählt werden sollen (oder ob alle ausgewählt werden). Nach Eingabe der Zahl und Bestätigung des Popups, werden zufällig Fragen aus dem Fragenpool genommen und mit jeder positiv beantworteten Frage einen Punkt dazu addiert oder bei falsch beantworteten Fragen wird ein Punkt abgezogen.
@@ -67,7 +88,7 @@ Man kann sowohl Fächer anlegen und bearbeiten als auch in die einzelnen Fächer
 ![](./img/Screenshot_2.png)
 
 ###### Themengebiet
-Man kann sowohl Themengebiete anlegen und bearbeiten als auch in die einzelnen Themengebiete hinein gehen und die Fragen sehen. Zusätzlich ist es möglich alle Fragen, die in diesem Themengebiet hinterlegt sind zu lernen/spielen.
+Man kann sowohl Themengebiete anlegen, bearbeiten und löschen als auch in die einzelnen Themengebiete hinein gehen und die Fragen sehen. Zusätzlich ist es möglich alle Fragen, die in diesem Themengebiet hinterlegt sind zu lernen/spielen.
 
   - `Neues Themengebiet anlegen:`
   - Mit einem Klick auf den '+' Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo der Name des Themengebiets eingegeben werden soll. Nach bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert.
@@ -78,6 +99,12 @@ Man kann sowohl Themengebiete anlegen und bearbeiten als auch in die einzelnen T
   - Mit einem langen Klick auf das Themengebiet, öffnet sich ein Kontext Menü wo ein 'Bearbeiten' Button erscheint. Mit dem Klick auf den Button, Verändert sich die Anzeige dieses einen Fachs auf ein Eingabefeld um den Namen des Fachs zu verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, wird der neue Wert in die Datenbank geupdated und das Eingabefeld wird wieder zur normalen anzeige.
 
 ![](./Ablaufdiagramm/Themengebiet_bearbeiten.drawio.png)
+
+- `Bestehendes Themengebiet löschen:`
+  - Mit einem langen Klick auf das Themengebiet, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob man dieses Themengebiet wirklich löschen möchte.
+  - Bestätigt man dieses Popup Fenster, werden sowohl Themengebiete als auch alle Fragen mit deren Antworten gelöscht.
+
+![](./Ablaufdiagramm/Themengebiet_Löschen.drawio.png)
 
 - `Fragen zu einem Themengebiet lernen:`
   - Mit einem Klick auf den Play-Button erscheint ein Popup-Feld wo gefragt wird wie viele Fragen aus dem Fragenpool ausgewählt werden sollen (oder ob alle ausgewählt werden). Nach Eingabe der Zahl und Bestätigung des Popups, werden zufällig Fragen aus dem Fragenpool genommen und mit jeder positiv beantworteten Frage einen Punkt dazu addiert oder bei falsch beantworteten Fragen wird ein Punkt abgezogen.
@@ -90,34 +117,47 @@ Man kann sowohl Themengebiete anlegen und bearbeiten als auch in die einzelnen T
 ![](./img/Screenshot_1.png)
 
 ###### Frage
-- Man kann in die einzelnen Fragen hinein gehen und neue Fragen anlegen
+Man kann sowohl Fragen anlegen, bearbeiten und löschen als auch in die Detail Ansicht hinein gehen und die Antwort zu der Frage sehen und zu bearbeiten.
 
-![](./img/Screenshot_3.png)
+- `Neue Frage anlegen:`
+  - Mit einem Klick auf den '+' Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo die Frage und dessen Antwort eingegeben werden soll. 
+  - Mit einem weiteren '+' Button in diesem Popup Fenster, erscheint ein weiteres Eingabefeld um mehr als eine Antwort angeben zu können. (Kann für weitere Antworten öfters genutzt werden!)
+  - Nach Bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert.
 
-###### Antwort
-- Man kann bestehende Fragen und dessen Antworten bearbeiten. 
+![](./Ablaufdiagramm/Frage_Hinzufügen.drawio.png)
 
-![](./img/Screenshot_4.png)
+- `Bestehende Frage bearbeiten:`
+  - Mit einem Klick auf die Frage, öffnet sich eine Detail Ansicht wo man zu einem Bearbeiten Button kommt. Mit dem Klick auf den bearbeiten Button, Verändert sich die Anzeigen von Frage und Antwort/Antowrten in Eingabefelder um die Frage und die Antworten verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, werden die neuen Werte in die Datenbank geupdated und die Eingabefelder werden wieder zur normalen anzeige.
 
-[//]: # (![]&#40;./img/Screenshot_2.png&#41;)
-
-
-## Aktivitätsdiagramm / Ablaufdiagramm
-![](./Ablaufdiagramm/AblaufDiagramm.png)
-
+![](./Ablaufdiagramm/Frage_Bearbeiten.drawio.png)
 
 
+- `Bestehende Frage Löschen:`
+  - Mit einem langen Klick auf die Frage, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob diese Frage wirklich gelöscht werden soll.
+  - Bestätigt man dieses Popup Fenster, wird die Frage mit allen dazugehörigen Antworten gelöscht.
 
-## Beziehungen
-### DatenbankModell
+![](./Ablaufdiagramm/Frage_Löschen.drawio.png)
+
+- `Prototyp`
+
+|                             |                             |
+| :-------------------------: | :-------------------------: |
+| ![](./img/Screenshot_3.png) | ![](./img/Screenshot_4.png) |
+
+
+
+# Beziehungen
+## DatenbankModell
 ![](./DatenbankModell/DatenbankMOdell_Fragen_und_Antworten.drawio.png)
+![](./DatenbankModell/ER-Diagramm_Datenbank.drawio.png)
+![](./DatenbankModell/ER-Diagramm_Datenbank_Bunt.drawio.png)
 
 - Ein Fach kann mehrere Fragen haben (1:n)
 - Ein Themengebiet kann mehrere Fragen haben (1:n)
 - Ein Fach kann mehrere Themengebiete haben (1:n)
 - Eine Frage kann mehrere Antworten haben (1:n)
 
-## Beschreibung der Beziehungen
+### Beschreibung der Beziehungen
 - Man kann alle Fragen (inklusive deren Antworten) die mit einem Fach verbunden sind auslesen.
   - Fragen werden zufällig aus der Datenbank ausgelesen
 - Man kann alle Fragen (inklusive deren Antworten) die mit einem Themengebiet verbunden sind auslesen.
@@ -165,4 +205,53 @@ Man kann sowohl Themengebiete anlegen und bearbeiten als auch in die einzelnen T
 - Delete
   - Antworten können nur gelöscht werden, wenn diese leer sind oder die Frage selbst gelöscht wird.
 
-## Timeline
+# Timeline
+
+- Woche 1:
+  - Projektstruktur und Datenbank-Schema erstellen.
+  - Grundlegende CRUD-Operationen für Fächer implementieren und mit der Datenbank integrieren.
+  - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Fächern entwickeln.
+
+- Woche 2:
+  - CRUD-Operationen für Themengebiete implementieren und mit der Datenbank integrieren
+  - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Themengebieten hinzufügen.
+
+- Woche 3:
+  - CRUD-Operationen für Fragen implementieren und mit der Datenbank integrieren.
+  - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Fragen entwickeln.
+
+- Woche 4:
+  - CRUD-Operationen für Antworten implementieren und mit der Datenbank integrieren.
+  - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Antworten hinzufügen.
+
+- Woche 5:
+  - Einen Algorithmus erstellen, um zufällige Fragen aus der Datenbank auszuwählen und sie dem Benutzer zum Lernen vorzulegen.
+  - Ein Punktesystem implementieren, um die Leistung des Benutzers zu verfolgen und die Fragehäufigkeit entsprechend anzupassen.
+
+- Woche 6:
+  - API-Endpunkte entwickeln, um Statistiken über den Lernfortschritt und die Leistung des Benutzers zu generieren.
+  - Die Option hinzufügen, Statistiken mithilfe von Diagrammen darzustellen.
+
+- Woche 7:
+  - Ausführliche Tests und Debugging des Backend-APIs durchführen.
+  - Bei Bedarf Verbesserungen und Optimierungen vornehmen.
+
+- Woche 8:
+  - Das Backend auf einem Server oder einer Cloud-Plattform bereitstellen.
+  - Leistungstests durchführen, um sicherzustellen, dass das System eine hohe Anzahl gleichzeitiger Benutzer verarbeiten kann.
+
+- Woche 9:
+  - Die Dokumentation und Benutzeranleitungen für das Backend-API abschließen.
+  - Ein umfassender Systemtest durchführen, um sicherzustellen, dass alle Funktionen wie erwartet funktionieren.
+
+- Woche 10:
+  - Die Integration mit dem Frontend der Lernplattform vorbereiten.
+  - Mit dem Frontend-Entwicklungsteam zusammenarbeiten, um eine nahtlose Integration zu gewährleisten.
+
+- Woche 11:
+  - Die Integration des Backend-APIs mit dem Frontend abschließen.
+  - End-to-End-Tests durchführen, um die ordnungsgemäße Funktionsweise der gesamten Plattform sicherzustellen.
+
+- Woche 12:
+  - Das gesamte Projekt überprüfen und verbleibende Probleme oder Fehler beheben.
+  - Zukünftige Updates und Verbesserungen basierend auf Benutzerfeedback und Anforderungen planen.

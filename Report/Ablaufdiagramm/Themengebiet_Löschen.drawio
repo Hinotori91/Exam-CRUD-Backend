@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" modified="2023-07-31T15:47:58.295Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="FqAhqR9XeXY7NrAg7kZw" version="21.6.5" type="device">
+  <diagram name="Seite-1" id="iN_x6oW6FP8_xYe13pnk">
+    <mxGraphModel dx="1354" dy="733" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="BeEEnUKPBMeuxC9Z_ZdW-2" target="BeEEnUKPBMeuxC9Z_ZdW-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-2" value="Klick auf den Lernen- Button auf der Navbar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="138" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-3" value="Bestehendes Themengebiet löschen" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="297" y="40" width="233" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="BeEEnUKPBMeuxC9Z_ZdW-5" target="BeEEnUKPBMeuxC9Z_ZdW-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-5" value="Langen Klick auf das Themengebiet das gelöscht werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="338" y="290" width="142" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="BeEEnUKPBMeuxC9Z_ZdW-7" target="BeEEnUKPBMeuxC9Z_ZdW-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-7" value="Kontext-Menü öffnet sich" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="BeEEnUKPBMeuxC9Z_ZdW-9" target="BeEEnUKPBMeuxC9Z_ZdW-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-9" value="Löschen auf dem Kontext-Menü auswählen" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="478" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="BeEEnUKPBMeuxC9Z_ZdW-11" target="BeEEnUKPBMeuxC9Z_ZdW-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-11" value="Nachfrage ob das Themengebiet mit all seinen Fragen wirklich gelöscht werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="268" y="564" width="282" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-12" value="Veränderung zurück auf Anzeige" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="344" y="725" width="130" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="BeEEnUKPBMeuxC9Z_ZdW-14" target="BeEEnUKPBMeuxC9Z_ZdW-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-14" value="Nach Bestätigung wird das Themengebiete und alle Fragen mit deren Antworten aus der Datenbank gelöscht" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="258" y="647" width="302" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="BeEEnUKPBMeuxC9Z_ZdW-15" target="BeEEnUKPBMeuxC9Z_ZdW-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BeEEnUKPBMeuxC9Z_ZdW-15" value="Fach auswählen wo das Themengebiet hinterlegt ist das gelöscht werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="308" y="200" width="202" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

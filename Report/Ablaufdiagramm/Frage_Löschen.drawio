@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" modified="2023-07-31T16:33:53.296Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="TU0_noPplOgGt-aOGiKu" version="21.6.5" type="device">
+  <diagram name="Seite-1" id="KstjcZxVzOwpBpc5Vgd_">
+    <mxGraphModel dx="1354" dy="733" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FaLKs_6rNhQ8nzlApSxv-2" target="FaLKs_6rNhQ8nzlApSxv-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-2" value="Klick auf den Lernen- Button auf der Navbar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="138" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-3" value="Bestehende Frage löschen" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="297" y="40" width="233" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FaLKs_6rNhQ8nzlApSxv-5" target="FaLKs_6rNhQ8nzlApSxv-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-5" value="Langen Klick auf die Frage die gelöscht werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="338" y="290" width="142" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FaLKs_6rNhQ8nzlApSxv-7" target="FaLKs_6rNhQ8nzlApSxv-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-7" value="Kontext-Menü öffnet sich" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FaLKs_6rNhQ8nzlApSxv-9" target="FaLKs_6rNhQ8nzlApSxv-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-9" value="Löschen auf dem Kontext-Menü auswählen" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="478" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FaLKs_6rNhQ8nzlApSxv-11" target="FaLKs_6rNhQ8nzlApSxv-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-11" value="Nachfrage ob die Frage mit allen Antworten wirklich gelöscht werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="268" y="564" width="282" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-12" value="Veränderung zurück auf Anzeige" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="328" y="725" width="162" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FaLKs_6rNhQ8nzlApSxv-14" target="FaLKs_6rNhQ8nzlApSxv-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-14" value="Nach Bestätigung wird die Frage und Antworten aus der Datenbank gelöscht" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="248" y="647" width="322" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FaLKs_6rNhQ8nzlApSxv-16" target="FaLKs_6rNhQ8nzlApSxv-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FaLKs_6rNhQ8nzlApSxv-16" value="Fach auswählen wo die Frage hinterlegt ist die gelöscht werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="268" y="200" width="282" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

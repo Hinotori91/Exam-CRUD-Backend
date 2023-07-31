@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" modified="2023-07-31T15:39:59.105Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="ZjIqJW3wOKtMJGMo2H9K" version="21.6.5" type="device">
+  <diagram name="Seite-1" id="o3c9j29kHvvN7yI6PArB">
+    <mxGraphModel dx="1354" dy="733" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZPntonCCA0SnLQiE37zb-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZPntonCCA0SnLQiE37zb-16" target="ZPntonCCA0SnLQiE37zb-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-16" value="Klick auf den Lernen- Button auf der Navbar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="138" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-17" value="Bestehendes Fach löschen" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="317" y="40" width="193" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZPntonCCA0SnLQiE37zb-19" target="ZPntonCCA0SnLQiE37zb-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-19" value="Langen Klick auf das Fach das gelöscht werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="205" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZPntonCCA0SnLQiE37zb-21" target="ZPntonCCA0SnLQiE37zb-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-21" value="Kontext-Menü öffnet sich" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="305" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZPntonCCA0SnLQiE37zb-23" target="ZPntonCCA0SnLQiE37zb-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-23" value="Löschen auf dem Kontext-Menü auswählen" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="393" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZPntonCCA0SnLQiE37zb-25" target="ZPntonCCA0SnLQiE37zb-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-25" value="Nachfrage ob das Fach mit all seinen Themengebieten und Fragen wirklich gelöscht werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="298" y="479" width="222" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-26" value="Veränderung zurück auf Anzeige" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="344" y="640" width="130" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZPntonCCA0SnLQiE37zb-28" target="ZPntonCCA0SnLQiE37zb-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZPntonCCA0SnLQiE37zb-28" value="Nach Bestätigung wird das Fach, alle Themengebiete und alle Fragen mit deren Antworten aus der Datenbank gelöscht" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="268" y="562" width="282" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" modified="2023-07-31T16:22:38.602Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="wI2D-1MABq8zn7Zz6XfH" version="21.6.5" type="device">
+  <diagram name="Seite-1" id="sKxij5MmUK99U8ejuEGg">
+    <mxGraphModel dx="1354" dy="1902" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XJG3UWN4zniphuzxOySA-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XJG3UWN4zniphuzxOySA-2" target="XJG3UWN4zniphuzxOySA-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-2" value="Klick auf den Lernen- Button auf der Navbar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="-1070" width="138" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-3" value="Neue Frage anlegen" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="357" y="-1110" width="193" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XJG3UWN4zniphuzxOySA-5" target="XJG3UWN4zniphuzxOySA-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-5" value="Klick auf den Hinzufügen (+) Button " style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="389" y="-750" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XJG3UWN4zniphuzxOySA-7" target="XJG3UWN4zniphuzxOySA-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-7" value="Popup mit Eingabefelder für die Frage und die Antwort" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="348" y="-650" width="202" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XJG3UWN4zniphuzxOySA-9" target="XJG3UWN4zniphuzxOySA-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-9" value="Klick auf den Speichern Button" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="389" y="-464" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XJG3UWN4zniphuzxOySA-11" target="XJG3UWN4zniphuzxOySA-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-11" value="Speicherung ins Backend mit Post-Request" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="389" y="-378" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-12" value="Automatische Weiterleitung auf die Übersichtsseite" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="384" y="-288" width="130" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XJG3UWN4zniphuzxOySA-14" target="XJG3UWN4zniphuzxOySA-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-14" value="Klick auf das Fach wo die Frage hinzugefügt werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="379" y="-955" width="141" height="70.5" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XJG3UWN4zniphuzxOySA-15" target="XJG3UWN4zniphuzxOySA-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-15" value="Klick auf das Themengebiet wo die Frage hinzugefügt werden soll" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="349" y="-849.25" width="201" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XJG3UWN4zniphuzxOySA-18" target="XJG3UWN4zniphuzxOySA-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XJG3UWN4zniphuzxOySA-18" value="Optional:&lt;br&gt;+ Button für weitere Eingabefelder die für Antworten genutzt werden können" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="328" y="-560" width="242" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
