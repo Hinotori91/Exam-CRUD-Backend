@@ -1,6 +1,8 @@
 package com.example.examcrud.service;
 
-import com.example.examcrud.dto.*;
+import com.example.examcrud.dto.FachDTOs.*;
+import com.example.examcrud.dto.FrageDTOs.FrageDTO;
+import com.example.examcrud.dto.ThemengebietDTOs.ThemengebietDTO;
 import com.example.examcrud.entity.Fach;
 import com.example.examcrud.entity.Frage;
 import com.example.examcrud.entity.Themengebiet;
@@ -20,87 +22,88 @@ import java.util.Optional;
 public class Fach_Service {
     @Autowired
     Fach_Repository fachRepository;
-    @Autowired
-    Themengebiet_Repository themengebietRepository;
-    @Autowired
-    Frage_Repository frageRepository;
 
-    public Response_FachDTO addNewFach(FachDTO fachDTO) {
+    // Neues Fach hinzufügen
+    public Add_Fach_Response_DTO addNewFach(Add_Fach_Request_DTO fachDTO) {
         Fach fach = Fach.builder().name(fachDTO.getName()).build();
         fachRepository.save(fach);
 
-        return Response_FachDTO.builder()
+        return Add_Fach_Response_DTO.builder()
                 .id(fach.getId())
                 .name(fach.getName())
                 .build();
     }
 
-    public List<Response_FachDTO> getAllFaecher() {
+    // Alle Fächer werden ausgegeben -> Nur ID und Name
+    public List<Get_All_Fach_Response_DTO> getAllFaecher() {
         List<Fach> fachList = fachRepository.findAll();
-        List<Response_FachDTO> responseList = new ArrayList<>();
-        List<FrageDTO> frageDTOList = new ArrayList<>();
-        List<Frage> frageList = frageRepository.findAll(); // TODO: findAllByFachId!!
-        List<Themengebiet> themengebietList = themengebietRepository.findAll(); // TODO: findAllByFachId
-        List<ThemengebietDTO> themengebietDTOList = new ArrayList<>();
+        List<Get_All_Fach_Response_DTO> responseList = new ArrayList<>();
 
         for (Fach element : fachList) {
-                     for (Frage frage:frageList){
-                FrageDTO frageDTO = FrageDTO.builder()
-                        .id(frage.getId())
-                        .name(frage.getName())
-                        .faecherId(element.getId())
-                        .themengebietId(themengebietList.get(0).getId()) // TODO: wird geändert wenn ich die richtige ID auslesen kann
-                        .build();
-                frageDTOList.add(frageDTO);
-            }
-
-            for (Themengebiet tg:themengebietList) {
-                ThemengebietDTO tgdto = ThemengebietDTO.builder()
-                        .id(tg.getId())
-                        .name(tg.getName())
-                        .build();
-                themengebietDTOList.add(tgdto);
-            }
 
 
-            responseList.add(Response_FachDTO.builder()
+            responseList.add(Get_All_Fach_Response_DTO.builder()
                     .id(element.getId())
                     .name(element.getName())
-                    .frageListe(frageDTOList)
-                    .themengebiet(themengebietDTOList)
                     .build());
         }
         return responseList;
     }
 
-    public Response_FachDTO getOneFach(int fachId) {
+    // Ein Fach wird anhand der ID ausgegeben inklusive Themengebiete
+    public Get_One_Fach_Response_DTO getOneFach(int fachId) {
         Optional<Fach> fach = fachRepository.findById(fachId);
 
         if (fach.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         } else {
-            Fach fach1 = fach.get();
-            return Response_FachDTO.builder()
-                    .id(fach1.getId())
-                    .name(fach1.getName())
-//                    .themengebiet(fach1.getThemengebietList())
-//                    .frageListe(fach1.getFrageListe())
+            List<Themengebiet> themengebietList = fach.get().getThemengebietListe();
+            List<ThemengebietDTO> themengebietDTOList = new ArrayList<>();
+
+            for (Themengebiet themengebiet : themengebietList) {
+                themengebietDTOList.add(ThemengebietDTO.builder()
+                        .id(themengebiet.getId())
+                        .name(themengebiet.getName())
+                        .build());
+            }
+
+            if (themengebietDTOList.isEmpty()) {
+                themengebietDTOList = null;
+            }
+
+            return Get_One_Fach_Response_DTO.builder()
+                    .id(fach.get().getId())
+                    .name(fach.get().getName())
+                    .themengebietListe(themengebietDTOList)
                     .build();
         }
     }
 
+    // Fach bearbeiten -> Name kann geändert werden
     public Response_FachDTO updateOneFach(int fachId, FachDTO fachDTO) {
         Optional<Fach> fach = fachRepository.findById(fachId);
 
-        if (fach.isEmpty()){
+        if (fach.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
         //TODO
+        fach.get().setName(fachDTO.getName());
+        fachRepository.save(fach.get());
 
-        return Response_FachDTO.builder().build();
+        return Response_FachDTO.builder()
+                .id(fachId)
+                .name(fach.get().getName())
+                .build();
     }
 
-    public Response_FachDTO deleteFach(int fachId) {
-        return Response_FachDTO.builder().build();
+    // Ein Fach kann gelöscht werden... Alle Themengebiete, Fragen und Antworten werden mit gelöscht!
+    public String deleteFach(int fachId) {
+        Optional<Fach> fach = fachRepository.findById(fachId);
+        if (fach.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+
+        fachRepository.delete(fach.get());
+        return "Erfolgreich gelöscht!";
     }
 }

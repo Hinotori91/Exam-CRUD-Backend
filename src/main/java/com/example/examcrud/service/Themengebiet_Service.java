@@ -1,9 +1,9 @@
 package com.example.examcrud.service;
 
-import com.example.examcrud.dto.FrageDTO;
-import com.example.examcrud.dto.Request_ThemengebetDTO;
-import com.example.examcrud.dto.Response_ThemengebietDTO;
-import com.example.examcrud.dto.ThemengebietDTO;
+import com.example.examcrud.dto.FrageDTOs.FrageDTO;
+import com.example.examcrud.dto.ThemengebietDTOs.Request_ThemengebetDTO;
+import com.example.examcrud.dto.ThemengebietDTOs.Response_ThemengebietDTO;
+import com.example.examcrud.dto.ThemengebietDTOs.ThemengebietDTO;
 import com.example.examcrud.entity.Frage;
 import com.example.examcrud.entity.Themengebiet;
 import com.example.examcrud.repository.Themengebiet_Repository;

@@ -1,11 +1,7 @@
 package com.example.examcrud.entity;
 
-import com.example.examcrud.dto.Fach_ThemengebietDTO;
-import com.example.examcrud.dto.FrageDTO;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 

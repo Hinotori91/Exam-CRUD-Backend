@@ -1,4 +1,4 @@
-package com.example.examcrud.dto;
+package com.example.examcrud.dto.FrageDTOs;
 
 import lombok.*;
 

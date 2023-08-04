@@ -1,6 +1,6 @@
-package com.example.examcrud.dto;
+package com.example.examcrud.dto.ThemengebietDTOs;
 
-import com.example.examcrud.entity.Frage;
+import com.example.examcrud.dto.FrageDTOs.FrageDTO;
 import lombok.*;
 
 import java.util.List;

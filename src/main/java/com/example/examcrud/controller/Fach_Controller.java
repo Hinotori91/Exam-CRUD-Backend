@@ -1,8 +1,6 @@
 package com.example.examcrud.controller;
 
-import com.example.examcrud.dto.FachDTO;
-import com.example.examcrud.dto.Request_FachDTO;
-import com.example.examcrud.dto.Response_FachDTO;
+import com.example.examcrud.dto.FachDTOs.*;
 import com.example.examcrud.service.Fach_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,8 +20,8 @@ public class Fach_Controller {
      * Erstellung eines neuen Fachs
      */
     @PostMapping
-    public ResponseEntity<?> addNewFach(@RequestBody FachDTO fachDTO) {
-        Response_FachDTO responseFachDTO;
+    public ResponseEntity<?> addNewFach(@RequestBody Add_Fach_Request_DTO fachDTO) {
+        Add_Fach_Response_DTO responseFachDTO;
         try {
             responseFachDTO = fachService.addNewFach(fachDTO);
         } catch (Exception e) {
@@ -37,7 +35,7 @@ public class Fach_Controller {
      */
     @GetMapping
     public ResponseEntity<?> getAllFaecher() {
-        List<Response_FachDTO> responseFachDTOList;
+        List<Get_All_Fach_Response_DTO> responseFachDTOList;
         try {
             responseFachDTOList = fachService.getAllFaecher();
         } catch (Exception e) {
@@ -51,7 +49,7 @@ public class Fach_Controller {
      */
     @GetMapping("/{fachId}")
     public ResponseEntity<?> getOneFach(@PathVariable int fachId) {
-        Response_FachDTO responseFachDTO;
+        Get_One_Fach_Response_DTO responseFachDTO;
         try {
             responseFachDTO = fachService.getOneFach(fachId);
         } catch (Exception e) {
@@ -64,9 +62,6 @@ public class Fach_Controller {
      * Bearbeitung eines bestimmten Fachs
      */
     @PutMapping("/{fachId}")
-//    public Response_FachDTO updateOneFach(@PathVariable int fachId) {
-//        return fachService.updateOneFach(fachId);
-//    }
     public ResponseEntity<?> updateOneFach(@PathVariable int fachId, @RequestBody FachDTO fachDTO){
         Response_FachDTO responseFachDTO;
         try {
@@ -82,7 +77,13 @@ public class Fach_Controller {
      * Löschung eines bestimmten Fachs
      */
     @DeleteMapping("/{fachId}")
-    public Response_FachDTO deleteOneFach(@PathVariable int fachId) {
-        return fachService.deleteFach(fachId);
+    public ResponseEntity <?> deleteOneFach(@PathVariable int fachId) {
+        String message;
+        try {
+            message = fachService.deleteFach(fachId);
+        }catch (Exception e){
+            return new ResponseEntity<>("Kein Eintrag mit dieser ID gefunden", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(message, HttpStatus.OK);
     }
 }

@@ -1,14 +1,13 @@
-package com.example.examcrud.dto;
+package com.example.examcrud.dto.FachDTOs;
 
 import lombok.*;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ThemengebietDTO {
+public class Add_Fach_Response_DTO {
     private int id;
     private String name;
 }

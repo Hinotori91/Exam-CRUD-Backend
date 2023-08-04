@@ -209,50 +209,29 @@ Man kann sowohl Fragen anlegen, bearbeiten und löschen als auch in die Detail A
 # Timeline
 
 - Woche 1:
-  - Projektstruktur und Datenbank-Schema erstellen.
   - Grundlegende CRUD-Operationen für Fächer implementieren und mit der Datenbank integrieren.
   - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Fächern entwickeln.
-
-- Woche 2:
   - CRUD-Operationen für Themengebiete implementieren und mit der Datenbank integrieren
   - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Themengebieten hinzufügen.
 
-- Woche 3:
+- Woche 2:
   - CRUD-Operationen für Fragen implementieren und mit der Datenbank integrieren.
   - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Fragen entwickeln.
-
-- Woche 4:
   - CRUD-Operationen für Antworten implementieren und mit der Datenbank integrieren.
   - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Antworten hinzufügen.
 
-- Woche 5:
+- Woche 3:
   - Einen Algorithmus erstellen, um zufällige Fragen aus der Datenbank auszuwählen und sie dem Benutzer zum Lernen vorzulegen.
   - Ein Punktesystem implementieren, um die Leistung des Benutzers zu verfolgen und die Fragehäufigkeit entsprechend anzupassen.
 
-- Woche 6:
+- Woche 4:
   - API-Endpunkte entwickeln, um Statistiken über den Lernfortschritt und die Leistung des Benutzers zu generieren.
   - Die Option hinzufügen, Statistiken mithilfe von Diagrammen darzustellen.
 
-- Woche 7:
+- Woche 5:
   - Ausführliche Tests und Debugging des Backend-APIs durchführen.
   - Bei Bedarf Verbesserungen und Optimierungen vornehmen.
 
-- Woche 8:
-  - Das Backend auf einem Server oder einer Cloud-Plattform bereitstellen.
-  - Leistungstests durchführen, um sicherzustellen, dass das System eine hohe Anzahl gleichzeitiger Benutzer verarbeiten kann.
-
-- Woche 9:
+- Woche 6:
   - Die Dokumentation und Benutzeranleitungen für das Backend-API abschließen.
   - Ein umfassender Systemtest durchführen, um sicherzustellen, dass alle Funktionen wie erwartet funktionieren.
-
-- Woche 10:
-  - Die Integration mit dem Frontend der Lernplattform vorbereiten.
-  - Mit dem Frontend-Entwicklungsteam zusammenarbeiten, um eine nahtlose Integration zu gewährleisten.
-
-- Woche 11:
-  - Die Integration des Backend-APIs mit dem Frontend abschließen.
-  - End-to-End-Tests durchführen, um die ordnungsgemäße Funktionsweise der gesamten Plattform sicherzustellen.
-
-- Woche 12:
-  - Das gesamte Projekt überprüfen und verbleibende Probleme oder Fehler beheben.
-  - Zukünftige Updates und Verbesserungen basierend auf Benutzerfeedback und Anforderungen planen.

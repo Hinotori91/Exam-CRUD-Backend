@@ -1,8 +1,8 @@
 package com.example.examcrud.controller;
 
-import com.example.examcrud.dto.Request_ThemengebetDTO;
-import com.example.examcrud.dto.Response_ThemengebietDTO;
-import com.example.examcrud.dto.ThemengebietDTO;
+import com.example.examcrud.dto.ThemengebietDTOs.Request_ThemengebetDTO;
+import com.example.examcrud.dto.ThemengebietDTOs.Response_ThemengebietDTO;
+import com.example.examcrud.dto.ThemengebietDTOs.ThemengebietDTO;
 import com.example.examcrud.service.Themengebiet_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

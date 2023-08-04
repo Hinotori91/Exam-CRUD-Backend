@@ -1,7 +1,6 @@
 package com.example.examcrud.controller;
 
-import com.example.examcrud.dto.FrageDTO;
-import com.example.examcrud.entity.Frage;
+import com.example.examcrud.dto.FrageDTOs.FrageDTO;
 import com.example.examcrud.service.Frage_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
