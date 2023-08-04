@@ -22,11 +22,6 @@ public class Themengebiet {
     @OneToMany(mappedBy = "themengebiet")
     private List<Frage> fragenListe;
 
-//    // Mehrere Themengebiete können mehrere Fächer haben (zb OOP gibt es in Java und in Kotlin)
-//    // Hilfstabelle Fach_Themengebiet
-//    @OneToMany(mappedBy = "themengebiet")
-//    private List<Fach_Themengebiet> fachListe;
-
     // Mehrere Themengebiete können ein Fach haben
     @ManyToOne
     @JoinColumn(name = "fachId")
