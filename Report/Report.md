@@ -17,6 +17,30 @@
 - [ ] Timeline
 
 [//]: # (# Zusammenfassung)
+
+- [Projektdefinition](#projektdefinition)
+- [Einleitung](#einleitung)
+- [Anforderungsanalyse](#anforderungsanalyse)
+  - [Muss Ziele](#muss-ziele)
+  - [Kann Ziele](#kann-ziele)
+  - [Aktivitätsdiagramm / Ablaufdiagramm](#aktivitätsdiagramm--ablaufdiagramm)
+  - [UseCases](#usecases)
+    - [Fach](#fach)
+      - [`UC_01` Neues Fach Anlegen:](#uc_01-neues-fach-anlegen)
+      - [`UC_02` Bestehendes Fach bearbeiten:](#uc_02-bestehendes-fach-bearbeiten)
+    - [Themengebiet](#themengebiet)
+    - [Frage](#frage)
+- [Beziehungen](#beziehungen)
+  - [DatenbankModell](#datenbankmodell)
+    - [Beschreibung der Beziehungen](#beschreibung-der-beziehungen)
+  - [CRUD Operationen / Technische Dokumentation](#crud-operationen--technische-dokumentation)
+    - [Fach](#fach-1)
+    - [Themengebiet](#themengebiet-1)
+    - [Frage](#frage-1)
+    - [Antwort](#antwort)
+- [Timeline](#timeline)
+
+
 # Projektdefinition
 Dies ist das Backend zu einer Lern-Plattform, wo Fragen und Antworten eingegeben und abgeprüft werden können.
 Die Fragen werden zufällig aus der Datenbank ausgelesen und dem User zum Lernen vorgelegt.
@@ -25,13 +49,23 @@ Es gibt ein Punktesystem, dass öfters richtig beantwortete Fragen seltener dem 
 Zusätzlich kann dieses Punktesystem anhand von einer Statistik abgerufen werden und eventuell anhand von einem Graphen dargestellt werden.
 Dennoch werden auch oft gut beantworte Fragen gelegentlich vorgelegt, um diese nicht zu vergessen.
 
+
+
 # Einleitung
 Mit dieser API biete ich die Möglichkeit für Schulen, Universitäten und diversen anderen Ausbildungseinrichtungen eine Sammelstätte für Fächer, Themengebiete, Fragen und Antworten.
 Es ist möglich, Fragen und Antworten anzulegen und mit Fächern UND Themengebieten zu kombinieren, um die Möglichkeit zu bieten, Fragen zu gewissen Fächern allgemein oder spezifiziert zu einem gewissen Themengebiet auszulesen.
 Zusätzlich gibt es auch ein Punktesystem, womit man auch anhand einer Statistik auslesen kann, wie der Lernerfolg ist, welche Fragen gut beantwortet wurden und welche Fragen besser geübt werden müssen.
 
+> Projektdefinition und einleitung zusammenlegen. technische details weglassen, eventuell frontend, das konsumiert erwähnen. duplizierte aussagen entfernen.
+
 # Anforderungsanalyse
 ## Muss Ziele
+- Management (CRUD) für Fächer, Themengebiete und Fragenkatalog
+- Übung von Fragen basiert sowohl auf Fächern oder Themengebieten in Form von Wahr-oder-Falsch-Spielen
+- Algorithmus für eine gewichtet-randomisierte Auswahl bereits oft richtig beantworteter Fragen
+
+
+<!-- 
 - Fach
   - Fach hinzufügen
   - Fach bearbeiten
@@ -47,28 +81,35 @@ Zusätzlich gibt es auch ein Punktesystem, womit man auch anhand einer Statistik
 - Antwort
   - Antwort hinzufügen
   - Antwort bearbeiten
-  - Einzelne Antworten löschen
+  - Einzelne Antworten löschen -->
 
-- Algorithmus für die unregelmäßige Ausgabe bereits oft richtig beantworteter Fragen
 ## Kann Ziele
 - Statistik über Lernerfolg nach einer Lern-Spiel-Runde
-- Generelle Auswertung der Statisiken aller Fragen/Fächer/Themengebiete
+- Diversität der Abfragemethode
+  - Multiple Choice
+  - Single Choice
+- Statisiken aller Fragen/Fächer/Themengebiete
   
 
-# Aktivitätsdiagramm / Ablaufdiagramm
-![](./Ablaufdiagramm/AblaufDiagramm.drawio.png)
+## Aktivitätsdiagramm / Ablaufdiagramm
+![Ablaufdiagramm](./Ablaufdiagramm/AblaufDiagramm.drawio.png)
 
 ## UseCases
-###### Fach
-Man kann sowohl Fächer anlegen, bearbeiten und löschen als auch in die einzelnen Fächer hinein gehen und die Themengebiete sehen. Zusätzlich ist es möglich alle Fragen die in diesem Fach hinterlegt sind zu lernen/spielen.
+### Fach
+Man kann sowohl Fächer anlegen, bearbeiten und löschen als auch die einzelnen Fächer öffnen und deren Themengebiete sehen. Zusätzlich ist es möglich alle Fragen, die in diesem Fach hinterlegt sind, zu lernen/spielen.
 
-- `Neues Fach Anlegen:`
-  - Mit einem Klick auf den '+' Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo der Name des Fachs eingegeben werden soll. Nach bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert.
+#### `UC_01` Neues Fach Anlegen:
+<!-- Mit einem Klick auf den "+" Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo der Name des Fachs eingegeben werden soll. Nach bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert. -->
+
+1. Klicke auf den "+"-Button. Es soll sich ein Popup-Fenster öffnen.
+2. Gib einen Namen für das neue Fach an.
+3. Klicke auf den "Speichern"-Button. Das Popup-Fenster soll sich schliessen.
+4. Überprüfe, dass das neue Fach in der Liste angezeigt wird.
 
 ![](./Ablaufdiagramm/Fach_Hinzufügen.drawio.png)
 
-- `Bestehendes Fach bearbeiten:`
-  - Mit einem langen Klick auf das Fach, öffnet sich ein Kontext Menü wo ein 'Bearbeiten' Button erscheint. Mit dem Klick auf den Button, Verändert sich die Anzeige dieses einen Fachs auf ein Eingabefeld um den Namen des Fachs zu verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, wird der neue Wert in die Datenbank geupdated und das Eingabefeld wird wieder zur normalen anzeige.
+#### `UC_02` Bestehendes Fach bearbeiten:
+Mit einem langen Klick auf das Fach öffnet sich ein Kontext-Menü wo ein 'Bearbeiten'-Button erscheint. Mit dem Klick auf den Button, Verändert sich die Anzeige dieses einen Fachs auf ein Eingabefeld um den Namen des Fachs zu verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, wird der neue Wert in die Datenbank geupdated und das Eingabefeld wird wieder zur normalen anzeige.
 
 ![](./Ablaufdiagramm/Fach_bearbeiten.drawio.png)
 
@@ -88,7 +129,7 @@ Man kann sowohl Fächer anlegen, bearbeiten und löschen als auch in die einzeln
 
 ![](./img/Screenshot_2.png)
 
-###### Themengebiet
+### Themengebiet
 Man kann sowohl Themengebiete anlegen, bearbeiten und löschen als auch in die einzelnen Themengebiete hinein gehen und die Fragen sehen. Zusätzlich ist es möglich alle Fragen, die in diesem Themengebiet hinterlegt sind zu lernen/spielen.
 
   - `Neues Themengebiet anlegen:`
@@ -117,7 +158,7 @@ Man kann sowohl Themengebiete anlegen, bearbeiten und löschen als auch in die e
 
 ![](./img/Screenshot_1.png)
 
-###### Frage
+### Frage
 Man kann sowohl Fragen anlegen, bearbeiten und löschen als auch in die Detail Ansicht hinein gehen und die Antwort zu der Frage sehen und zu bearbeiten.
 
 - `Neue Frage anlegen:`
