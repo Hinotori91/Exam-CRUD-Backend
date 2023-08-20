@@ -2,7 +2,7 @@
 ![](./img/Lama.png)
 
 
----
+<!-- ---
 - [X] Titel
 - [x] Projektdefinition 
 - [x] Anforderungsanalyse
@@ -14,11 +14,10 @@
   - [x] Aktivitätsdiagramme
 - [x] ER - Diagramme für Datenbank
   - [x] Datenbank Modell
-- [ ] Timeline
+- [ ] Timeline -->
 
 [//]: # (# Zusammenfassung)
 
-- [Projektdefinition](#projektdefinition)
 - [Einleitung](#einleitung)
 - [Anforderungsanalyse](#anforderungsanalyse)
   - [Muss Ziele](#muss-ziele)
@@ -26,62 +25,44 @@
   - [Aktivitätsdiagramm / Ablaufdiagramm](#aktivitätsdiagramm--ablaufdiagramm)
   - [UseCases](#usecases)
     - [Fach](#fach)
-      - [`UC_01` Neues Fach Anlegen:](#uc_01-neues-fach-anlegen)
-      - [`UC_02` Bestehendes Fach bearbeiten:](#uc_02-bestehendes-fach-bearbeiten)
+      - [`UC_01` Neues Fach Anlegen](#uc_01-neues-fach-anlegen)
+      - [`UC_02` Bestehendes Fach bearbeiten](#uc_02-bestehendes-fach-bearbeiten)
+      - [`UC_03` Bestehendes Fach löschen](#uc_03-bestehendes-fach-löschen)
+      - [`UC_04` Fragen zu einem Fach lernen](#uc_04-fragen-zu-einem-fach-lernen)
     - [Themengebiet](#themengebiet)
+      - [`UC_05` Neues Themengebiet anlegen](#uc_05-neues-themengebiet-anlegen)
+      - [`UC_06` Bestehendes Themengebiet bearbeiten](#uc_06-bestehendes-themengebiet-bearbeiten)
+      - [`UC_07` Bestehendes Themengebiet löschen](#uc_07-bestehendes-themengebiet-löschen)
+      - [`UC_08` Fragen zu einem Themengebiet lernen](#uc_08-fragen-zu-einem-themengebiet-lernen)
     - [Frage](#frage)
-- [Beziehungen](#beziehungen)
-  - [DatenbankModell](#datenbankmodell)
-    - [Beschreibung der Beziehungen](#beschreibung-der-beziehungen)
-  - [CRUD Operationen / Technische Dokumentation](#crud-operationen--technische-dokumentation)
-    - [Fach](#fach-1)
-    - [Themengebiet](#themengebiet-1)
-    - [Frage](#frage-1)
-    - [Antwort](#antwort)
+      - [`UC_09` Neue Frage anlegen](#uc_09-neue-frage-anlegen)
+      - [`UC_10` Bestehende Frage bearbeiten](#uc_10-bestehende-frage-bearbeiten)
+      - [`UC_11` Bestehende Frage Löschen](#uc_11-bestehende-frage-löschen)
+- [Algorithmus für die Fragen-Auswahl](#algorithmus-für-die-fragen-auswahl)
+- [Datenbank](#datenbank)
+  - [Modell](#modell)
+  - [Beziehungen](#beziehungen)
 - [Timeline](#timeline)
-
-
-# Projektdefinition
-Dies ist das Backend zu einer Lern-Plattform, wo Fragen und Antworten eingegeben und abgeprüft werden können.
-Die Fragen werden zufällig aus der Datenbank ausgelesen und dem User zum Lernen vorgelegt.
-Die Fragen müssen vom User selbst, als richtig oder falsch beantwortet angegeben werden.
-Es gibt ein Punktesystem, dass öfters richtig beantwortete Fragen seltener dem User vorgelegt werden und er somit neue Fragen lernen kann.
-Zusätzlich kann dieses Punktesystem anhand von einer Statistik abgerufen werden und eventuell anhand von einem Graphen dargestellt werden.
-Dennoch werden auch oft gut beantworte Fragen gelegentlich vorgelegt, um diese nicht zu vergessen.
+  - [Woche 1](#woche-1)
+  - [Woche 2](#woche-2)
+  - [Woche 3](#woche-3)
+  - [Woche 4](#woche-4)
+  - [Woche 5](#woche-5)
+  - [Woche 6](#woche-6)
 
 
 
 # Einleitung
-Mit dieser API biete ich die Möglichkeit für Schulen, Universitäten und diversen anderen Ausbildungseinrichtungen eine Sammelstätte für Fächer, Themengebiete, Fragen und Antworten.
-Es ist möglich, Fragen und Antworten anzulegen und mit Fächern UND Themengebieten zu kombinieren, um die Möglichkeit zu bieten, Fragen zu gewissen Fächern allgemein oder spezifiziert zu einem gewissen Themengebiet auszulesen.
-Zusätzlich gibt es auch ein Punktesystem, womit man auch anhand einer Statistik auslesen kann, wie der Lernerfolg ist, welche Fragen gut beantwortet wurden und welche Fragen besser geübt werden müssen.
+Dies ist das Backend zu einer Lernplattform, in welcher Fragen und Antworten eingegeben und abgeprüft werden können. Diese API bietet eine Sammelstätte für Schulen, Universitäten und diverse andere Ausbildungseinrichtungen für Fächer, Themengebiete, Fragen und Antworten. Es können Fragen mit dazugehörigen Antworten angelegt, bearbeitet und gelöscht werden. Jede Frage wird sowohl einem Fach als auch einem Themengebiet zugewiesen, wodurch Fragen zu Fächern oder Themengebieten ausgelesen und gelernt werden können.
 
-> Projektdefinition und einleitung zusammenlegen. technische details weglassen, eventuell frontend, das konsumiert erwähnen. duplizierte aussagen entfernen.
+Als nicht-triviale Schwierigkeit werden die zum Lernen präsentierten Fragen von einem Algorithmus ausgewählt der öfters richtig beantwortete Fragen schwächer und besonders oft falsch beantwortete Fragen stärker gewichtet. Weiters wird eine Statistik über den Lernerfolg zur Verfügung gestellt.
+
 
 # Anforderungsanalyse
 ## Muss Ziele
 - Management (CRUD) für Fächer, Themengebiete und Fragenkatalog
 - Übung von Fragen basiert sowohl auf Fächern oder Themengebieten in Form von Wahr-oder-Falsch-Spielen
 - Algorithmus für eine gewichtet-randomisierte Auswahl bereits oft richtig beantworteter Fragen
-
-
-<!-- 
-- Fach
-  - Fach hinzufügen
-  - Fach bearbeiten
-  - Fach löschen
-- Themengebiet
-  - Themengebiet hinzufügen
-  - Themengebiet bearbeiten
-  - Thmengebiet löschen
-- Frage
-  - Frage hinzufügen
-  - Frage bearbeiten
-  - Frage löschen
-- Antwort
-  - Antwort hinzufügen
-  - Antwort bearbeiten
-  - Einzelne Antworten löschen -->
 
 ## Kann Ziele
 - Statistik über Lernerfolg nach einer Lern-Spiel-Runde
@@ -98,115 +79,202 @@ Zusätzlich gibt es auch ein Punktesystem, womit man auch anhand einer Statistik
 ### Fach
 Man kann sowohl Fächer anlegen, bearbeiten und löschen als auch die einzelnen Fächer öffnen und deren Themengebiete sehen. Zusätzlich ist es möglich alle Fragen, die in diesem Fach hinterlegt sind, zu lernen/spielen.
 
-#### `UC_01` Neues Fach Anlegen:
+![Prototyp](./img/Screenshot_2.png)
+
+#### `UC_01` Neues Fach Anlegen
 <!-- Mit einem Klick auf den "+" Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo der Name des Fachs eingegeben werden soll. Nach bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert. -->
 
 1. Klicke auf den "+"-Button. Es soll sich ein Popup-Fenster öffnen.
 2. Gib einen Namen für das neue Fach an.
-3. Klicke auf den "Speichern"-Button. Das Popup-Fenster soll sich schliessen.
+3. Klicke auf den "Speichern"-Button. Das Popup-Fenster soll sich schließen.
 4. Überprüfe, dass das neue Fach in der Liste angezeigt wird.
 
 ![](./Ablaufdiagramm/Fach_Hinzufügen.drawio.png)
 
-#### `UC_02` Bestehendes Fach bearbeiten:
-Mit einem langen Klick auf das Fach öffnet sich ein Kontext-Menü wo ein 'Bearbeiten'-Button erscheint. Mit dem Klick auf den Button, Verändert sich die Anzeige dieses einen Fachs auf ein Eingabefeld um den Namen des Fachs zu verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, wird der neue Wert in die Datenbank geupdated und das Eingabefeld wird wieder zur normalen anzeige.
+#### `UC_02` Bestehendes Fach bearbeiten
+<!-- Mit einem langen Klick auf das Fach öffnet sich ein Kontext-Menü wo ein 'Bearbeiten'-Button erscheint. Mit dem Klick auf den Button, Verändert sich die Anzeige dieses einen Fachs auf ein Eingabefeld um den Namen des Fachs zu verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, wird der neue Wert in die Datenbank geupdated und das Eingabefeld wird wieder zur normalen anzeige. -->
+
+1. Klicke lang auf das zu bearbeitende Fach. Es sollte sich ein Kontext-Menü öffnen das einen "Bearbeiten"-Button enthält.
+2. Klicke den "Bearbeiten"-Button. Das Fach sollte nun in einem Eingabefeld dargestellt werden.
+3. Verändere den Namen des Fachs.
+4. Klicke auf den "Speichern"-Button.
+5. Überprüfe, dass der Name des Fachs geändert dargestellt wird.
 
 ![](./Ablaufdiagramm/Fach_bearbeiten.drawio.png)
 
-- `Bestehendes Fach löschen:`
-  - Mit einem langen Klick auf das Fach, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob man dieses Fach wirklich löschen möchte.
-  - Bestätigt man dieses Popup Fenster, werden sowohl Fach als auch alle Themengebiete und alle Fragen mit deren Antworten gelöscht.
+#### `UC_03` Bestehendes Fach löschen
+  <!-- - Mit einem langen Klick auf das Fach, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob man dieses Fach wirklich löschen möchte.
+  - Bestätigt man dieses Popup Fenster, werden sowohl Fach als auch alle Themengebiete und alle Fragen mit deren Antworten gelöscht. -->
+
+1. Klicke lang auf das zu löschende Fach. Es sollte sich ein Kontext-Menü öffnen das einen "Löschen"-Button enthält.
+2. Klicke den "Löschen"-Button. Es sollte sich ein Popup-Fenster öffnen mit dem man das Löschen bestätigen kann.
+3. Bestätige das Löschen.
+4. Überprüfe, dass sowohl das Fach, als auch alle Themengebiete und alle Fragen mitsamt deren Antworten gelöscht sind.
 
 ![](./Ablaufdiagramm/Fach_Löschen.drawio.png)
 
-- `Fragen zu einem Fach lernen:`
-  - Mit einem Klick auf den Play-Button erscheint ein Popup-Feld wo gefragt wird wie viele Fragen aus dem Fragenpool ausgewählt werden sollen (oder ob alle ausgewählt werden). Nach Eingabe der Zahl und Bestätigung des Popups, werden zufällig Fragen aus dem Fragenpool genommen und mit jeder positiv beantworteten Frage einen Punkt dazu addiert oder bei falsch beantworteten Fragen wird ein Punkt abgezogen.
-  - Ein Algorithmus wird dann die Häufigkeit der gestellten Fragen optimieren, um einen sehr guten Lernerfolg zu garantieren.
-  
+#### `UC_04` Fragen zu einem Fach lernen
+  <!-- - Mit einem Klick auf den Play-Button erscheint ein Popup-Feld wo gefragt wird wie viele Fragen aus dem Fragenpool ausgewählt werden sollen (oder ob alle ausgewählt werden). Nach Eingabe der Zahl und Bestätigung des Popups, werden zufällig Fragen aus dem Fragenpool genommen und mit jeder positiv beantworteten Frage einen Punkt dazu addiert oder bei falsch beantworteten Fragen wird ein Punkt abgezogen.
+  - Ein Algorithmus wird dann die Häufigkeit der gestellten Fragen optimieren, um einen sehr guten Lernerfolg zu garantieren. -->
+
+1. Klicke auf den "Play"-Button des zu lernenden Fachs. Es sollte sich die Lern-Ansicht dieses Fachs mit einer augenscheinlich zufälligen Frage öffnen.
+2. Wähle die richtigen Antworten aus.
+3. Klicke auf den "Überprüfen"-Button.
+4. Überprüfe, dass die Antworten korrekt als richtig oder falsch markiert wurden. Es sollen ein "Stopp"- und ein "Weiter"-Button angezeigt werden.
+5. Klicke auf den "Weiter"-Button. Es soll eine neue Frage geladen werden.
+6. Beantworte diese Frage falsch.
+7. Klicke auf den "Überprüfen"-Button.
+8. Wiederhole Schritt 4.
+9. Klicke auf den "Stopp"-Button. Es soll eine Zusammenfassung der Antwortergebnisse gezeigt werden.
+10. Überprüfe, ob die Zusammenfassung korrekt ist.
+
 ![](./Ablaufdiagramm/Fach_Fragen_lernen.drawio.png)
 
-- `Prototyp:`
-
-![](./img/Screenshot_2.png)
 
 ### Themengebiet
 Man kann sowohl Themengebiete anlegen, bearbeiten und löschen als auch in die einzelnen Themengebiete hinein gehen und die Fragen sehen. Zusätzlich ist es möglich alle Fragen, die in diesem Themengebiet hinterlegt sind zu lernen/spielen.
 
-  - `Neues Themengebiet anlegen:`
-  - Mit einem Klick auf den '+' Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo der Name des Themengebiets eingegeben werden soll. Nach bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert.
+![Prototyp](./img/Screenshot_1.png)
+
+#### `UC_05` Neues Themengebiet anlegen
+  <!-- - Mit einem Klick auf den '+' Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo der Name des Themengebiets eingegeben werden soll. Nach bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert. -->
+
+1. Klicke auf das Fach, dem ein Themengebiet hinzugefügt werden soll. Es soll eine Liste der Themengebiete dieses Fachs angezeigt werden.
+2. Klicke auf den "+"-Button. Es soll sich ein Popup-Fenster öffnen.
+3. Gib einen Namen für das neue Themengebiet an.
+4. Klicke auf den "Speichern"-Button. Das Popup-Fenster soll sich schließen.
+5. Überprüfe, dass das neue Themengebiet in der Liste angezeigt wird.
 
 ![](./Ablaufdiagramm/Themengebiet_Hinzufügen.drawio.png)
 
-- `Bestehendes Themengebiet bearbeiten:`
-  - Mit einem langen Klick auf das Themengebiet, öffnet sich ein Kontext Menü wo ein 'Bearbeiten' Button erscheint. Mit dem Klick auf den Button, Verändert sich die Anzeige dieses einen Fachs auf ein Eingabefeld um den Namen des Fachs zu verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, wird der neue Wert in die Datenbank geupdated und das Eingabefeld wird wieder zur normalen anzeige.
+#### `UC_06` Bestehendes Themengebiet bearbeiten
+  <!-- - Mit einem langen Klick auf das Themengebiet, öffnet sich ein Kontext Menü wo ein 'Bearbeiten' Button erscheint. Mit dem Klick auf den Button, Verändert sich die Anzeige dieses einen Fachs auf ein Eingabefeld um den Namen des Fachs zu verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, wird der neue Wert in die Datenbank geupdated und das Eingabefeld wird wieder zur normalen anzeige. -->
+
+1. Klicke auf das Fach, dessen Themengebiet bearbeitet werden soll. Es soll eine Liste der Themengebiete dieses Fachs angezeigt werden.
+2. Klicke lang auf das zu bearbeitende Themengebiet. Es sollte sich ein Kontext-Menü öffnen das einen "Bearbeiten"-Button enthält.
+3. Klicke den "Bearbeiten"-Button. Das Themengebiet sollte nun in einem Eingabefeld dargestellt werden.
+4. Verändere den Namen des Themengebiet.
+5. Klicke auf den "Speichern"-Button.
+6. Überprüfe, dass der Name des Themengebiet geändert dargestellt wird.
+
 
 ![](./Ablaufdiagramm/Themengebiet_bearbeiten.drawio.png)
 
-- `Bestehendes Themengebiet löschen:`
-  - Mit einem langen Klick auf das Themengebiet, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob man dieses Themengebiet wirklich löschen möchte.
-  - Bestätigt man dieses Popup Fenster, werden sowohl Themengebiete als auch alle Fragen mit deren Antworten gelöscht.
+#### `UC_07` Bestehendes Themengebiet löschen
+  <!-- - Mit einem langen Klick auf das Themengebiet, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob man dieses Themengebiet wirklich löschen möchte.
+  - Bestätigt man dieses Popup Fenster, werden sowohl Themengebiete als auch alle Fragen mit deren Antworten gelöscht. -->
+
+1. Klicke auf das Fach, dessen Themengebiet gelöscht werden soll. Es soll eine Liste der Themengebiete dieses Fachs angezeigt werden.
+2. Klicke lang auf das zu löschende Themengebiet. Es sollte sich ein Kontext-Menü öffnen das einen "Löschen"-Button enthält.
+3. Klicke den "Löschen"-Button. Es sollte sich ein Popup-Fenster öffnen mit dem man das Löschen bestätigen kann.
+4. Bestätige das Löschen.
+5. Überprüfe, dass sowohl das Themengebiet, als auch alle Fragen mitsamt deren Antworten gelöscht sind.
 
 ![](./Ablaufdiagramm/Themengebiet_Löschen.drawio.png)
 
-- `Fragen zu einem Themengebiet lernen:`
-  - Mit einem Klick auf den Play-Button erscheint ein Popup-Feld wo gefragt wird wie viele Fragen aus dem Fragenpool ausgewählt werden sollen (oder ob alle ausgewählt werden). Nach Eingabe der Zahl und Bestätigung des Popups, werden zufällig Fragen aus dem Fragenpool genommen und mit jeder positiv beantworteten Frage einen Punkt dazu addiert oder bei falsch beantworteten Fragen wird ein Punkt abgezogen.
-  - Ein Algorithmus wird dann die Häufigkeit der gestellten Fragen optimieren, um einen sehr guten Lernerfolg zu garantieren.
+#### `UC_08` Fragen zu einem Themengebiet lernen
+  <!-- - Mit einem Klick auf den Play-Button erscheint ein Popup-Feld wo gefragt wird wie viele Fragen aus dem Fragenpool ausgewählt werden sollen (oder ob alle ausgewählt werden). Nach Eingabe der Zahl und Bestätigung des Popups, werden zufällig Fragen aus dem Fragenpool genommen und mit jeder positiv beantworteten Frage einen Punkt dazu addiert oder bei falsch beantworteten Fragen wird ein Punkt abgezogen.
+  - Ein Algorithmus wird dann die Häufigkeit der gestellten Fragen optimieren, um einen sehr guten Lernerfolg zu garantieren. -->
+
+1. Klicke auf das Fach, dessen Themengebiet gelernt werden soll. Es soll eine Liste der Themengebiete dieses Fachs angezeigt werden.
+2. Klicke auf den "Play"-Button des zu lernenden Themengebiet. Es sollte sich die Lern-Ansicht dieses Themengebiet mit einer augenscheinlich zufälligen Frage öffnen.
+3. Wähle die richtigen Antworten aus.
+4. Klicke auf den "Überprüfen"-Button.
+5. Überprüfe, dass die Antworten korrekt als richtig oder falsch markiert wurden. Es sollen ein "Stopp"- und ein "Weiter"-Button angezeigt werden.
+6. Klicke auf den "Weiter"-Button. Es soll eine neue Frage geladen werden.
+7. Beantworte diese Frage falsch.
+8. Klicke auf den "Überprüfen"-Button.
+9.  Wiederhole Schritt 4.
+10. Klicke auf den "Stopp"-Button. Es soll eine Zusammenfassung der Antwortergebnisse gezeigt werden.
+11. Überprüfe, ob die Zusammenfassung korrekt ist.
 
 ![](./Ablaufdiagramm/Fach_Fragen_lernen.drawio.png)
 
-- `Prototyp`
-
-![](./img/Screenshot_1.png)
 
 ### Frage
 Man kann sowohl Fragen anlegen, bearbeiten und löschen als auch in die Detail Ansicht hinein gehen und die Antwort zu der Frage sehen und zu bearbeiten.
 
-- `Neue Frage anlegen:`
-  - Mit einem Klick auf den '+' Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo die Frage und dessen Antwort eingegeben werden soll. 
+|                                     |                                     |
+| :---------------------------------: | :---------------------------------: |
+| ![Prototyp](./img/Screenshot_3.png) | ![Prototyp](./img/Screenshot_4.png) |
+
+#### `UC_09` Neue Frage anlegen
+  <!-- - Mit einem Klick auf den '+' Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo die Frage und dessen Antwort eingegeben werden soll. 
   - Mit einem weiteren '+' Button in diesem Popup Fenster, erscheint ein weiteres Eingabefeld um mehr als eine Antwort angeben zu können. (Kann für weitere Antworten öfters genutzt werden!)
-  - Nach Bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert.
+  - Nach Bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert. -->
+
+1. Klicke auf das Fach, dem eine Frage hinzugefügt werden soll. Es soll eine Liste der Themengebiete dieses Fachs angezeigt werden.
+2. Klicke auf das Themengebiet, dem eine Frage hinzugefügt werden soll. Es soll eine Liste der Fragen dieses Themengebiets angezeigt werden.
+3. Klicke auf den "+"-Button. Es soll sich ein Popup-Fenster öffnen.
+4. Gib sowohl die Frage als auch dessen Antworten ein.
+5. Klicke auf den "Speichern"-Button. Das Popup-Fenster soll sich schließen.
+6. Überprüfe, dass die neue Frage in der Liste angezeigt wird.
 
 ![](./Ablaufdiagramm/Frage_Hinzufügen.drawio.png)
 
-- `Bestehende Frage bearbeiten:`
-  - Mit einem Klick auf die Frage, öffnet sich eine Detail Ansicht wo man zu einem Bearbeiten Button kommt. Mit dem Klick auf den bearbeiten Button, Verändert sich die Anzeigen von Frage und Antwort/Antowrten in Eingabefelder um die Frage und die Antworten verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, werden die neuen Werte in die Datenbank geupdated und die Eingabefelder werden wieder zur normalen anzeige.
+#### `UC_10` Bestehende Frage bearbeiten
+  <!-- - Mit einem Klick auf die Frage, öffnet sich eine Detail Ansicht wo man zu einem Bearbeiten Button kommt. Mit dem Klick auf den bearbeiten Button, Verändert sich die Anzeigen von Frage und Antwort/Antowrten in Eingabefelder um die Frage und die Antworten verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, werden die neuen Werte in die Datenbank geupdated und die Eingabefelder werden wieder zur normalen anzeige. -->
+
+1. Klicke auf das Fach, dessen Frage bearbeitet werden soll. Es soll eine Liste der Themengebiete dieses Fachs angezeigt werden.
+2. Klicke auf das Themengebiet, dessen Frage bearbeitet werden soll. Es soll eine Liste der Fragen dieses Themengebiets angezeigt werden.
+3. Klicke lang auf die zu bearbeitende Frage. Es sollte sich ein Kontext-Menü öffnen das einen "Bearbeiten"-Button enthält.
+4. Klicke den "Bearbeiten"-Button. Es soll sich ein Popup-Fenster öffnen in dem die Frage bearbeitet werden können.
+5. Verändere den Text von Frage und Antworten.
+6. Schalte eine Antwort von "Richtig" auf "Falsch".
+7. Klicke auf den "Speichern"-Button.
+8. Überprüfe, dass die veränderten Werte richtig dargestellt werden.
+
 
 ![](./Ablaufdiagramm/Frage_Bearbeiten.drawio.png)
 
 
-- `Bestehende Frage Löschen:`
-  - Mit einem langen Klick auf die Frage, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob diese Frage wirklich gelöscht werden soll.
-  - Bestätigt man dieses Popup Fenster, wird die Frage mit allen dazugehörigen Antworten gelöscht.
+#### `UC_11` Bestehende Frage Löschen
+  <!-- - Mit einem langen Klick auf die Frage, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob diese Frage wirklich gelöscht werden soll.
+  - Bestätigt man dieses Popup Fenster, wird die Frage mit allen dazugehörigen Antworten gelöscht. -->
+
+1. Klicke auf das Fach, dessen Frage gelöscht werden soll. Es soll eine Liste der Themengebiete dieses Fachs angezeigt werden.
+2. Klicke auf das Themengebiet, dessen Frage gelöscht werden soll. Es soll eine Liste der Fragen dieses Themengebiets angezeigt werden.
+3. Klicke lang auf die zu bearbeitende Frage. Es sollte sich ein Kontext-Menü öffnen das einen "Löschen"-Button enthält.
+4. Klicke den "Löschen"-Button.
+5. Überprüfe, dass die Frage aus der Liste entfernt wurde.
 
 ![](./Ablaufdiagramm/Frage_Löschen.drawio.png)
 
-- `Prototyp`
-
-|                             |                             |
-| :-------------------------: | :-------------------------: |
-| ![](./img/Screenshot_3.png) | ![](./img/Screenshot_4.png) |
 
 
+# Algorithmus für die Fragen-Auswahl
+> Das Backend soll einen nicht-trivialen Algorithmus implementieren, der - ähnlich den Algorithmen die in Social Media Plattformen in Verwendung sind - basierend auf der Nutzungsdaten des User eine personalisierte Auswahl an Fragen erstellt.
+>
+> Folgende Punkte sollten in die Berechnung einfliessen:
+> * Das Ergebnisse der letzten Versuche (5?)
+> * Wie weit die letzten Versuche in der Vergangenheit liegen
+> * Die absolute Anzahl an Versuchen
+>
+> Der Algorithmus sollte eine Art Gewicht berechnen, welches auch in der Datenbank abzuspeichern ist. Die für die Berechnung notwendigen Daten sollen auch abgespeichert sein, damit die Berechnung wiederholt werden kann. Die Berechnung sollte bei gleichen Eingaben auch immer gleiche Ausgaben erzeugen. Eine leichte Randomisierung der dargestellten Fragen ist erwünscht, allerdings sollte dies in der serverseitigen API-Implementierung passieren und nicht direkt Teil des Algorithmus sein.
+>
+> Die Gewichtung könnte mithilfe eines gewichteten Arithmetischen Mittels (Durchschnitt mit Gewichtung) erfolgen.
 
-# Beziehungen
-## DatenbankModell
+
+
+# Datenbank
+## Modell
 ![](./DatenbankModell/DatenbankMOdell_Fragen_und_Antworten.drawio.png)
 ![](./DatenbankModell/ER-Diagramm_Datenbank.drawio.png)
 ![](./DatenbankModell/ER-Diagramm_Datenbank_Bunt.drawio.png)
 
+## Beziehungen
 - Ein Fach kann mehrere Fragen haben (1:n)
 - Ein Themengebiet kann mehrere Fragen haben (1:n)
 - Ein Fach kann mehrere Themengebiete haben (1:n)
 - Eine Frage kann mehrere Antworten haben (1:n)
 
-### Beschreibung der Beziehungen
-- Man kann alle Fragen (inklusive deren Antworten) die mit einem Fach verbunden sind auslesen.
+<!-- - Man kann alle Fragen (inklusive deren Antworten) die mit einem Fach verbunden sind auslesen.
   - Fragen werden zufällig aus der Datenbank ausgelesen
 - Man kann alle Fragen (inklusive deren Antworten) die mit einem Themengebiet verbunden sind auslesen.
   - Fragen werden zufällig aus der Datenbank ausgelesen
-- Jede Frage hat 1 oder mehrere Antworten
+- Jede Frage hat 1 oder mehrere Antworten -->
 
-## CRUD Operationen / Technische Dokumentation
+<!-- ## CRUD Operationen / Technische Dokumentation
 ### Fach
 - Create:
   - Neue Fächer müssen erstellt werden können
@@ -245,34 +313,34 @@ Man kann sowohl Fragen anlegen, bearbeiten und löschen als auch in die Detail A
 - Read
   - Antworten können NUR mit der Frage selbst ausgelesen werden!
 - Delete
-  - Antworten können nur gelöscht werden, wenn diese leer sind oder die Frage selbst gelöscht wird.
+  - Antworten können nur gelöscht werden, wenn diese leer sind oder die Frage selbst gelöscht wird. -->
+
 
 # Timeline
+## Woche 1
+- Grundlegende CRUD-Operationen für Fächer implementieren und mit der Datenbank integrieren.
+- API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Fächern entwickeln.
+- CRUD-Operationen für Themengebiete implementieren und mit der Datenbank integrieren
+- API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Themengebieten hinzufügen.
 
-- Woche 1:
-  - Grundlegende CRUD-Operationen für Fächer implementieren und mit der Datenbank integrieren.
-  - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Fächern entwickeln.
-  - CRUD-Operationen für Themengebiete implementieren und mit der Datenbank integrieren
-  - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Themengebieten hinzufügen.
+## Woche 2
+- CRUD-Operationen für Fragen implementieren und mit der Datenbank integrieren.
+- API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Fragen entwickeln.
+- CRUD-Operationen für Antworten implementieren und mit der Datenbank integrieren.
+- API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Antworten hinzufügen.
 
-- Woche 2:
-  - CRUD-Operationen für Fragen implementieren und mit der Datenbank integrieren.
-  - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Fragen entwickeln.
-  - CRUD-Operationen für Antworten implementieren und mit der Datenbank integrieren.
-  - API-Endpunkte für das Erstellen, Aktualisieren, Auslesen und Löschen von Antworten hinzufügen.
+## Woche 3
+- Einen Algorithmus erstellen, um zufällige Fragen aus der Datenbank auszuwählen und sie dem Benutzer zum Lernen vorzulegen.
+- Ein Punktesystem implementieren, um die Leistung des Benutzers zu verfolgen und die Fragehäufigkeit entsprechend anzupassen.
 
-- Woche 3:
-  - Einen Algorithmus erstellen, um zufällige Fragen aus der Datenbank auszuwählen und sie dem Benutzer zum Lernen vorzulegen.
-  - Ein Punktesystem implementieren, um die Leistung des Benutzers zu verfolgen und die Fragehäufigkeit entsprechend anzupassen.
+## Woche 4
+- API-Endpunkte entwickeln, um Statistiken über den Lernfortschritt und die Leistung des Benutzers zu generieren.
+- Die Option hinzufügen, Statistiken mithilfe von Diagrammen darzustellen.
 
-- Woche 4:
-  - API-Endpunkte entwickeln, um Statistiken über den Lernfortschritt und die Leistung des Benutzers zu generieren.
-  - Die Option hinzufügen, Statistiken mithilfe von Diagrammen darzustellen.
+## Woche 5
+- Ausführliche Tests und Debugging des Backend-APIs durchführen.
+- Bei Bedarf Verbesserungen und Optimierungen vornehmen.
 
-- Woche 5:
-  - Ausführliche Tests und Debugging des Backend-APIs durchführen.
-  - Bei Bedarf Verbesserungen und Optimierungen vornehmen.
-
-- Woche 6:
-  - Die Dokumentation und Benutzeranleitungen für das Backend-API abschließen.
-  - Ein umfassender Systemtest durchführen, um sicherzustellen, dass alle Funktionen wie erwartet funktionieren.
+## Woche 6
+- Die Dokumentation und Benutzeranleitungen für das Backend-API abschließen.
+- Ein umfassender Systemtest durchführen, um sicherzustellen, dass alle Funktionen wie erwartet funktionieren.
