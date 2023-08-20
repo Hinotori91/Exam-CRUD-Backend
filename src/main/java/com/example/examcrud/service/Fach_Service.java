@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,7 +69,7 @@ public class Fach_Service {
             }
 
             if (themengebietDTOList.isEmpty()) {
-                themengebietDTOList = null;
+                themengebietDTOList = Collections.emptyList();
             }
 
             return Get_One_Fach_Response_DTO.builder()
