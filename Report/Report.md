@@ -24,20 +24,23 @@
   - [Kann Ziele](#kann-ziele)
   - [Aktivitätsdiagramm / Ablaufdiagramm](#aktivitätsdiagramm--ablaufdiagramm)
   - [UseCases](#usecases)
+    - [User](#user)
+      - [`UC_01` Neuen User anlegen](#uc_01-neuen-user-anlegen)
+      - [`UC_02` Mit Bestehendem User anmelden](#uc_02-mit-bestehendem-user-anmelden)
     - [Fach](#fach)
-      - [`UC_01` Neues Fach Anlegen](#uc_01-neues-fach-anlegen)
-      - [`UC_02` Bestehendes Fach bearbeiten](#uc_02-bestehendes-fach-bearbeiten)
-      - [`UC_03` Bestehendes Fach löschen](#uc_03-bestehendes-fach-löschen)
-      - [`UC_04` Fragen zu einem Fach lernen](#uc_04-fragen-zu-einem-fach-lernen)
+      - [`UC_03` Neues Fach Anlegen](#uc_03-neues-fach-anlegen)
+      - [`UC_04` Bestehendes Fach bearbeiten](#uc_04-bestehendes-fach-bearbeiten)
+      - [`UC_05` Bestehendes Fach löschen](#uc_05-bestehendes-fach-löschen)
+      - [`UC_06` Fragen zu einem Fach lernen](#uc_06-fragen-zu-einem-fach-lernen)
     - [Themengebiet](#themengebiet)
-      - [`UC_05` Neues Themengebiet anlegen](#uc_05-neues-themengebiet-anlegen)
-      - [`UC_06` Bestehendes Themengebiet bearbeiten](#uc_06-bestehendes-themengebiet-bearbeiten)
-      - [`UC_07` Bestehendes Themengebiet löschen](#uc_07-bestehendes-themengebiet-löschen)
-      - [`UC_08` Fragen zu einem Themengebiet lernen](#uc_08-fragen-zu-einem-themengebiet-lernen)
+      - [`UC_07` Neues Themengebiet anlegen](#uc_07-neues-themengebiet-anlegen)
+      - [`UC_08` Bestehendes Themengebiet bearbeiten](#uc_08-bestehendes-themengebiet-bearbeiten)
+      - [`UC_09` Bestehendes Themengebiet löschen](#uc_09-bestehendes-themengebiet-löschen)
+      - [`UC_10` Fragen zu einem Themengebiet lernen](#uc_10-fragen-zu-einem-themengebiet-lernen)
     - [Frage](#frage)
-      - [`UC_09` Neue Frage anlegen](#uc_09-neue-frage-anlegen)
-      - [`UC_10` Bestehende Frage bearbeiten](#uc_10-bestehende-frage-bearbeiten)
-      - [`UC_11` Bestehende Frage Löschen](#uc_11-bestehende-frage-löschen)
+      - [`UC_11` Neue Frage anlegen](#uc_11-neue-frage-anlegen)
+      - [`UC_12` Bestehende Frage bearbeiten](#uc_12-bestehende-frage-bearbeiten)
+      - [`UC_13` Bestehende Frage Löschen](#uc_13-bestehende-frage-löschen)
 - [Algorithmus für die Fragen-Auswahl](#algorithmus-für-die-fragen-auswahl)
 - [Datenbank](#datenbank)
   - [Modell](#modell)
@@ -76,12 +79,25 @@ Als nicht-triviale Schwierigkeit werden die zum Lernen präsentierten Fragen von
 ![Ablaufdiagramm](./Ablaufdiagramm/AblaufDiagramm.drawio.png)
 
 ## UseCases
+### User
+Der User muss in der App registriert und angemeldet sein um diese benutzen zu können. Dafür muss ein Benutzername und ein Passwort angegeben werden, die in die Datenbank gespeichert werden.
+
+#### `UC_01` Neuen User anlegen
+1. Öffne die App. Es soll sich eine Anmeldemaske mit zwei Eingabefeldern für Benutzername und Paswort öffnen
+2. Klicke auf den "Registrieren"-Button. Es soll sich eine Registierungsmaske mit zwei Eingabefelder für Benutzername und Passwort öffnen.
+3. Befülle beide Eingabefelder mit dem Benutzernamen und dem Passwort mit dem du dich anmelden möchtest
+4. Klicke auf den "Registrieren"-Button. Es soll sich die Startseite der App öffnen
+
+#### `UC_02` Mit Bestehendem User anmelden
+1. Öffne die App. Es soll sich eine Anmeldemaske mit zwei Eingabefeldern für Benutzername und Paswort öffnen
+2. Fülle Benutzername und Passwort mit den bereits registrierten Daten aus. Es soll sich die Startseite der App öffnen
+
 ### Fach
 Man kann sowohl Fächer anlegen, bearbeiten und löschen als auch die einzelnen Fächer öffnen und deren Themengebiete sehen. Zusätzlich ist es möglich alle Fragen, die in diesem Fach hinterlegt sind, zu lernen/spielen.
 
 ![Prototyp](./img/Screenshot_2.png)
 
-#### `UC_01` Neues Fach Anlegen
+#### `UC_03` Neues Fach Anlegen
 <!-- Mit einem Klick auf den "+" Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo der Name des Fachs eingegeben werden soll. Nach bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert. -->
 
 1. Klicke auf den "+"-Button. Es soll sich ein Popup-Fenster öffnen.
@@ -91,7 +107,7 @@ Man kann sowohl Fächer anlegen, bearbeiten und löschen als auch die einzelnen 
 
 ![](./Ablaufdiagramm/Fach_Hinzufügen.drawio.png)
 
-#### `UC_02` Bestehendes Fach bearbeiten
+#### `UC_04` Bestehendes Fach bearbeiten
 <!-- Mit einem langen Klick auf das Fach öffnet sich ein Kontext-Menü wo ein 'Bearbeiten'-Button erscheint. Mit dem Klick auf den Button, Verändert sich die Anzeige dieses einen Fachs auf ein Eingabefeld um den Namen des Fachs zu verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, wird der neue Wert in die Datenbank geupdated und das Eingabefeld wird wieder zur normalen anzeige. -->
 
 1. Klicke lang auf das zu bearbeitende Fach. Es sollte sich ein Kontext-Menü öffnen das einen "Bearbeiten"-Button enthält.
@@ -102,7 +118,7 @@ Man kann sowohl Fächer anlegen, bearbeiten und löschen als auch die einzelnen 
 
 ![](./Ablaufdiagramm/Fach_bearbeiten.drawio.png)
 
-#### `UC_03` Bestehendes Fach löschen
+#### `UC_05` Bestehendes Fach löschen
   <!-- - Mit einem langen Klick auf das Fach, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob man dieses Fach wirklich löschen möchte.
   - Bestätigt man dieses Popup Fenster, werden sowohl Fach als auch alle Themengebiete und alle Fragen mit deren Antworten gelöscht. -->
 
@@ -113,7 +129,7 @@ Man kann sowohl Fächer anlegen, bearbeiten und löschen als auch die einzelnen 
 
 ![](./Ablaufdiagramm/Fach_Löschen.drawio.png)
 
-#### `UC_04` Fragen zu einem Fach lernen
+#### `UC_06` Fragen zu einem Fach lernen
   <!-- - Mit einem Klick auf den Play-Button erscheint ein Popup-Feld wo gefragt wird wie viele Fragen aus dem Fragenpool ausgewählt werden sollen (oder ob alle ausgewählt werden). Nach Eingabe der Zahl und Bestätigung des Popups, werden zufällig Fragen aus dem Fragenpool genommen und mit jeder positiv beantworteten Frage einen Punkt dazu addiert oder bei falsch beantworteten Fragen wird ein Punkt abgezogen.
   - Ein Algorithmus wird dann die Häufigkeit der gestellten Fragen optimieren, um einen sehr guten Lernerfolg zu garantieren. -->
 
@@ -136,7 +152,7 @@ Man kann sowohl Themengebiete anlegen, bearbeiten und löschen als auch in die e
 
 ![Prototyp](./img/Screenshot_1.png)
 
-#### `UC_05` Neues Themengebiet anlegen
+#### `UC_07` Neues Themengebiet anlegen
   <!-- - Mit einem Klick auf den '+' Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo der Name des Themengebiets eingegeben werden soll. Nach bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert. -->
 
 1. Klicke auf das Fach, dem ein Themengebiet hinzugefügt werden soll. Es soll eine Liste der Themengebiete dieses Fachs angezeigt werden.
@@ -147,7 +163,7 @@ Man kann sowohl Themengebiete anlegen, bearbeiten und löschen als auch in die e
 
 ![](./Ablaufdiagramm/Themengebiet_Hinzufügen.drawio.png)
 
-#### `UC_06` Bestehendes Themengebiet bearbeiten
+#### `UC_08` Bestehendes Themengebiet bearbeiten
   <!-- - Mit einem langen Klick auf das Themengebiet, öffnet sich ein Kontext Menü wo ein 'Bearbeiten' Button erscheint. Mit dem Klick auf den Button, Verändert sich die Anzeige dieses einen Fachs auf ein Eingabefeld um den Namen des Fachs zu verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, wird der neue Wert in die Datenbank geupdated und das Eingabefeld wird wieder zur normalen anzeige. -->
 
 1. Klicke auf das Fach, dessen Themengebiet bearbeitet werden soll. Es soll eine Liste der Themengebiete dieses Fachs angezeigt werden.
@@ -160,7 +176,7 @@ Man kann sowohl Themengebiete anlegen, bearbeiten und löschen als auch in die e
 
 ![](./Ablaufdiagramm/Themengebiet_bearbeiten.drawio.png)
 
-#### `UC_07` Bestehendes Themengebiet löschen
+#### `UC_09` Bestehendes Themengebiet löschen
   <!-- - Mit einem langen Klick auf das Themengebiet, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob man dieses Themengebiet wirklich löschen möchte.
   - Bestätigt man dieses Popup Fenster, werden sowohl Themengebiete als auch alle Fragen mit deren Antworten gelöscht. -->
 
@@ -172,7 +188,7 @@ Man kann sowohl Themengebiete anlegen, bearbeiten und löschen als auch in die e
 
 ![](./Ablaufdiagramm/Themengebiet_Löschen.drawio.png)
 
-#### `UC_08` Fragen zu einem Themengebiet lernen
+#### `UC_10` Fragen zu einem Themengebiet lernen
   <!-- - Mit einem Klick auf den Play-Button erscheint ein Popup-Feld wo gefragt wird wie viele Fragen aus dem Fragenpool ausgewählt werden sollen (oder ob alle ausgewählt werden). Nach Eingabe der Zahl und Bestätigung des Popups, werden zufällig Fragen aus dem Fragenpool genommen und mit jeder positiv beantworteten Frage einen Punkt dazu addiert oder bei falsch beantworteten Fragen wird ein Punkt abgezogen.
   - Ein Algorithmus wird dann die Häufigkeit der gestellten Fragen optimieren, um einen sehr guten Lernerfolg zu garantieren. -->
 
@@ -198,7 +214,7 @@ Man kann sowohl Fragen anlegen, bearbeiten und löschen als auch in die Detail A
 | :---------------------------------: | :---------------------------------: |
 | ![Prototyp](./img/Screenshot_3.png) | ![Prototyp](./img/Screenshot_4.png) |
 
-#### `UC_09` Neue Frage anlegen
+#### `UC_11` Neue Frage anlegen
   <!-- - Mit einem Klick auf den '+' Button öffnet sich ein Popup-Fenster in dem ein Eingabefeld ist, wo die Frage und dessen Antwort eingegeben werden soll. 
   - Mit einem weiteren '+' Button in diesem Popup Fenster, erscheint ein weiteres Eingabefeld um mehr als eine Antwort angeben zu können. (Kann für weitere Antworten öfters genutzt werden!)
   - Nach Bestätigung des 'Speichern' Buttons, wird dieser Name mittels Post-Request in die Datenbank gespeichert. -->
@@ -212,7 +228,7 @@ Man kann sowohl Fragen anlegen, bearbeiten und löschen als auch in die Detail A
 
 ![](./Ablaufdiagramm/Frage_Hinzufügen.drawio.png)
 
-#### `UC_10` Bestehende Frage bearbeiten
+#### `UC_12` Bestehende Frage bearbeiten
   <!-- - Mit einem Klick auf die Frage, öffnet sich eine Detail Ansicht wo man zu einem Bearbeiten Button kommt. Mit dem Klick auf den bearbeiten Button, Verändert sich die Anzeigen von Frage und Antwort/Antowrten in Eingabefelder um die Frage und die Antworten verändern/bearbeiten. Mit einem weiteren Klick auf den 'Speichern' Button, werden die neuen Werte in die Datenbank geupdated und die Eingabefelder werden wieder zur normalen anzeige. -->
 
 1. Klicke auf das Fach, dessen Frage bearbeitet werden soll. Es soll eine Liste der Themengebiete dieses Fachs angezeigt werden.
@@ -228,7 +244,7 @@ Man kann sowohl Fragen anlegen, bearbeiten und löschen als auch in die Detail A
 ![](./Ablaufdiagramm/Frage_Bearbeiten.drawio.png)
 
 
-#### `UC_11` Bestehende Frage Löschen
+#### `UC_13` Bestehende Frage Löschen
   <!-- - Mit einem langen Klick auf die Frage, öffnet sich ein Kontext Menü wo ein 'Löschen' Button erscheint. Mit einem Klick auf den Button, öffnet sich ein Popup Fenster wo nachgefragt wird ob diese Frage wirklich gelöscht werden soll.
   - Bestätigt man dieses Popup Fenster, wird die Frage mit allen dazugehörigen Antworten gelöscht. -->
 
@@ -344,3 +360,8 @@ Man kann sowohl Fragen anlegen, bearbeiten und löschen als auch in die Detail A
 ## Woche 6
 - Die Dokumentation und Benutzeranleitungen für das Backend-API abschließen.
 - Ein umfassender Systemtest durchführen, um sicherzustellen, dass alle Funktionen wie erwartet funktionieren.
+
+
+~~Zwischentabelle (UserID + FrageId + Timestamp)~~
+User Tabelle + im report auf User eingeben
+~~Er Diagramm anpassen (Boolean:True)~~
