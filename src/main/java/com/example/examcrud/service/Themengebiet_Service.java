@@ -1,6 +1,5 @@
 package com.example.examcrud.service;
 
-import com.example.examcrud.dto.FachDTOs.Get_One_Fach_Response_DTO;
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
 import com.example.examcrud.dto.ThemengebietDTOs.*;
 import com.example.examcrud.entity.Fach;
@@ -39,6 +38,25 @@ public class Themengebiet_Service {
                     .build());
         }
         return tgList;
+    }
+
+    public List<ThemengebietDTO> getAllThemengebieteFromOneFach(int fachId) {
+        Optional<Fach> fach = fachRepository.findById(fachId);
+        List<Themengebiet> themengebietList;
+        List<ThemengebietDTO> themengebietListDTO = new ArrayList<>();
+
+        if (fach.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        themengebietList = themengebietRepository.findByFach(fach.get());
+        for(Themengebiet tg : themengebietList){
+            themengebietListDTO.add(ThemengebietDTO.builder()
+                            .id(tg.getId())
+                            .name(tg.getName())
+                    .build());
+        }
+
+        return themengebietListDTO;
     }
 
     public Get_One_Themengebiet_Response_DTO getSingleThemengebiet(int themengebietId) {

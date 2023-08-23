@@ -9,4 +9,6 @@ import java.util.List;
 
 @Repository
 public interface Themengebiet_Repository extends JpaRepository<Themengebiet, Integer> {
+    List<Themengebiet> findByFach(Fach fach);
+
 }

@@ -28,6 +28,17 @@ public class Themengebiet_Controller {
         return new ResponseEntity<>(getAllThemengebietResponseDto, HttpStatus.OK);
     }
 
+    @GetMapping("/fachid/{fachId}")
+    public ResponseEntity<?> getAllThemengebieteFromOneFach(@PathVariable int fachId){
+        List<ThemengebietDTO> allThemengebieteFromOneFachDTO;
+        try {
+            allThemengebieteFromOneFachDTO = themengebietService.getAllThemengebieteFromOneFach(fachId);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(allThemengebieteFromOneFachDTO, HttpStatus.OK);
+    }
+
     @GetMapping("/{themengebietId}")
     public ResponseEntity<?> getSingleThemengebiet(@PathVariable int themengebietId){
         Get_One_Themengebiet_Response_DTO getOneFachResponseDto;
