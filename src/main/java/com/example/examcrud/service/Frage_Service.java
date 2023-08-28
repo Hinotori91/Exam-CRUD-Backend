@@ -1,8 +1,12 @@
 package com.example.examcrud.service;
 
+import com.example.examcrud.dto.FrageDTOs.Add_Frage_Request_DTO;
+import com.example.examcrud.dto.FrageDTOs.Add_Frage_Response_DTO;
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
+import com.example.examcrud.entity.Fach;
 import com.example.examcrud.entity.Frage;
 import com.example.examcrud.entity.Themengebiet;
+import com.example.examcrud.repository.Fach_Repository;
 import com.example.examcrud.repository.Frage_Repository;
 import com.example.examcrud.repository.Themengebiet_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +26,8 @@ public class Frage_Service {
     Themengebiet_Service themengebietService;
     @Autowired
     Themengebiet_Repository themengebietRepository;
+    @Autowired
+    Fach_Repository fachRepository;
 
     public List<FrageDTO> getAllFragenVonThemengebietId(int themengebietId) {
         List<FrageDTO> frageDTOList = null;
@@ -44,4 +50,29 @@ public class Frage_Service {
 
         return frageDTOList;
     }
+
+    public Add_Frage_Response_DTO addNewFrage(Add_Frage_Request_DTO frageRequestDto) {
+        Optional<Fach> fach = fachRepository.findById(frageRequestDto.getFachId());
+        Optional<Themengebiet> themengebiet = themengebietRepository.findById(frageRequestDto.getThemengebietId());
+
+        if (fach.isEmpty() || themengebiet.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+
+        Frage frage = Frage.builder()
+                .name(frageRequestDto.getName())
+                .faecher(fach.get())
+                .themengebiet(themengebiet.get())
+                .build();
+
+        frageRepository.save(frage);
+
+        return Add_Frage_Response_DTO.builder()
+                .id(frage.getId())
+                .name(frage.getName())
+                .fachId(frage.getFaecher().getId())
+                .themengebietId(frage.getThemengebiet().getId())
+                .build();
+    }
+
 }

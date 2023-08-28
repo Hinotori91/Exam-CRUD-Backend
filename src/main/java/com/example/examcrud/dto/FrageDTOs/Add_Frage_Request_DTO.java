@@ -1,4 +1,4 @@
-package com.example.examcrud.dto.FachDTOs;
+package com.example.examcrud.dto.FrageDTOs;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Add_Fach_Request_DTO {
+public class Add_Frage_Request_DTO {
     private String name;
     private int fachId;
     private int themengebietId;

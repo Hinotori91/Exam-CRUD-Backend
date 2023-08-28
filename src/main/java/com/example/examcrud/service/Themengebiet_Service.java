@@ -1,6 +1,7 @@
 package com.example.examcrud.service;
 
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
+import com.example.examcrud.dto.FrageDTOs.Frage_DetailedThemengebiet_DTO;
 import com.example.examcrud.dto.ThemengebietDTOs.*;
 import com.example.examcrud.entity.Fach;
 import com.example.examcrud.entity.Frage;
@@ -80,10 +81,10 @@ public class Themengebiet_Service {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         List<Frage> frageList = frageRepository.findByThemengebiet(themengebiet.get());
-        List<FrageDTO> frageDTOList = null;
+        List<Frage_DetailedThemengebiet_DTO> frageDTOList = new ArrayList<>();
 
         for (Frage frage : frageList){
-            frageDTOList.add(FrageDTO.builder()
+            frageDTOList.add(Frage_DetailedThemengebiet_DTO.builder()
                             .id(frage.getId())
                             .name(frage.getName())
                     .build());
@@ -93,8 +94,8 @@ public class Themengebiet_Service {
         return Get_One_Detailed_Themengebiet_DTO.builder()
                 .id(themengebietId)
                 .name(themengebiet.get().getName())
-                .fachId(themengebiet.get().getFach().getId())
                 .frageDTOList(frageDTOList)
+                .fachId(themengebiet.get().getFach().getId())
                 .build();
     }
 
