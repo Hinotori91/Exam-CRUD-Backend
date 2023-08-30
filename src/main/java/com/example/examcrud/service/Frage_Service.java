@@ -3,6 +3,7 @@ package com.example.examcrud.service;
 import com.example.examcrud.dto.FrageDTOs.Add_Frage_Request_DTO;
 import com.example.examcrud.dto.FrageDTOs.Add_Frage_Response_DTO;
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
+import com.example.examcrud.dto.FrageDTOs.SingleFrageDTO;
 import com.example.examcrud.entity.Fach;
 import com.example.examcrud.entity.Frage;
 import com.example.examcrud.entity.Themengebiet;
@@ -14,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +32,7 @@ public class Frage_Service {
     Fach_Repository fachRepository;
 
     public List<FrageDTO> getAllFragenVonThemengebietId(int themengebietId) {
-        List<FrageDTO> frageDTOList = null;
+        List<FrageDTO> frageDTOList = new ArrayList<>();
         Optional<Themengebiet> themengebiet = themengebietRepository.findById(themengebietId);
 
         if (themengebiet.isEmpty()){
@@ -75,4 +77,13 @@ public class Frage_Service {
                 .build();
     }
 
+    public SingleFrageDTO getOneFrage(int frageId) {
+        Optional<Frage> frage = frageRepository.findById(frageId);
+
+
+        return SingleFrageDTO.builder()
+                .id(frage.get().getId())
+                .name(frage.get().getName())
+                .build();
+    }
 }

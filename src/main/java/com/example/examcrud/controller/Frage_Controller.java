@@ -3,6 +3,7 @@ package com.example.examcrud.controller;
 import com.example.examcrud.dto.FrageDTOs.Add_Frage_Request_DTO;
 import com.example.examcrud.dto.FrageDTOs.Add_Frage_Response_DTO;
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
+import com.example.examcrud.dto.FrageDTOs.SingleFrageDTO;
 import com.example.examcrud.service.Frage_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,11 @@ public class Frage_Controller {
     @GetMapping("/{themengebietId}")
     public List<FrageDTO> getAllFragenVonThemengebietId(@PathVariable int themengebietId) {
         return frageService.getAllFragenVonThemengebietId(themengebietId);
+    }
+
+    @GetMapping("/singleFrage/{frageId}")
+    public SingleFrageDTO getOneFrage(@PathVariable int frageId){
+        return frageService.getOneFrage(frageId);
     }
 
     @PostMapping

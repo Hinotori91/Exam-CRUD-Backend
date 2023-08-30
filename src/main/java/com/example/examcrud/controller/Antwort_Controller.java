@@ -1,10 +1,15 @@
 package com.example.examcrud.controller;
 
+import com.example.examcrud.dto.AntwortenDTOs.Add_Antwort_Request_DTO;
+import com.example.examcrud.dto.AntwortenDTOs.Add_Antwort_Response_DTO;
+import com.example.examcrud.dto.AntwortenDTOs.AntwortDTO;
 import com.example.examcrud.service.Antwort_Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/antwort")
@@ -12,5 +17,25 @@ public class Antwort_Controller {
     @Autowired
     Antwort_Service antwortService;
 
-    
+    @GetMapping("/{frageId}")
+    public ResponseEntity<?> getAllAntwortenFromFrage(@PathVariable int frageId){
+        List<AntwortDTO> antwortListDTO;
+        try{
+            antwortListDTO = antwortService.getAllAntwortenFromFrage(frageId);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(antwortListDTO, HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> addNewAntwortToFrage(@RequestBody Add_Antwort_Request_DTO addAntwortRequestDto){
+        Add_Antwort_Response_DTO addAntwortResponseDto;
+        try {
+            addAntwortResponseDto = antwortService.addAntwortToFrage(addAntwortRequestDto);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(addAntwortResponseDto, HttpStatus.OK);
+    }
 }
