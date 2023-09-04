@@ -87,7 +87,6 @@ public class Fach_Service {
         if (fach.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
-        //TODO
         fach.get().setName(fachDTO.getName());
         fachRepository.save(fach.get());
 
