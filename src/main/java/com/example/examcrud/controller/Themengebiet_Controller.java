@@ -84,4 +84,15 @@ public class Themengebiet_Controller {
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
+    @PutMapping("/{themengebietId}")
+    public ResponseEntity<?> updateThemengebiet(@PathVariable int themengebietId, @RequestBody ThemengebietDTO themengebietDTO ){
+        Update_Response_Themengebiet_DTO updateResponseThemengebietDto;
+        try {
+            updateResponseThemengebietDto = themengebietService.updateThemengebiet(themengebietId, themengebietDTO);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(updateResponseThemengebietDto, HttpStatus.OK);
+    }
+
 }

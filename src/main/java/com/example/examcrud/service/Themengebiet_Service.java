@@ -46,14 +46,14 @@ public class Themengebiet_Service {
         List<Themengebiet> themengebietList;
         List<ThemengebietDTO> themengebietListDTO = new ArrayList<>();
 
-        if (fach.isEmpty()){
+        if (fach.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         themengebietList = themengebietRepository.findByFach(fach.get());
-        for(Themengebiet tg : themengebietList){
+        for (Themengebiet tg : themengebietList) {
             themengebietListDTO.add(ThemengebietDTO.builder()
-                            .id(tg.getId())
-                            .name(tg.getName())
+                    .id(tg.getId())
+                    .name(tg.getName())
                     .build());
         }
 
@@ -83,10 +83,10 @@ public class Themengebiet_Service {
         List<Frage> frageList = frageRepository.findByThemengebiet(themengebiet.get());
         List<Frage_DetailedThemengebiet_DTO> frageDTOList = new ArrayList<>();
 
-        for (Frage frage : frageList){
+        for (Frage frage : frageList) {
             frageDTOList.add(Frage_DetailedThemengebiet_DTO.builder()
-                            .id(frage.getId())
-                            .name(frage.getName())
+                    .id(frage.getId())
+                    .name(frage.getName())
                     .build());
         }
 
@@ -123,10 +123,25 @@ public class Themengebiet_Service {
     public String deleteThemengebiet(int themengebietId) {
         Optional<Themengebiet> themengebiet = themengebietRepository.findById(themengebietId);
 
-        if (themengebiet.isEmpty()){
+        if (themengebiet.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         themengebietRepository.delete(themengebiet.get());
         return "Erfolgreich gelöscht";
+    }
+
+    public Update_Response_Themengebiet_DTO updateThemengebiet(int themengebietId, ThemengebietDTO themengebietDTO) {
+        Optional<Themengebiet> themengebiet = themengebietRepository.findById(themengebietId);
+
+        if (themengebiet.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
+        themengebiet.get().setName(themengebietDTO.getName());
+        themengebietRepository.save(themengebiet.get());
+
+        return Update_Response_Themengebiet_DTO.builder()
+                .id(themengebiet.get().getId())
+                .name(themengebiet.get().getName())
+                .build();
     }
 }
