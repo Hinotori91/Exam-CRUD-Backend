@@ -1,9 +1,7 @@
 package com.example.examcrud.service;
 
-import com.example.examcrud.dto.FrageDTOs.Add_Frage_Request_DTO;
-import com.example.examcrud.dto.FrageDTOs.Add_Frage_Response_DTO;
-import com.example.examcrud.dto.FrageDTOs.FrageDTO;
-import com.example.examcrud.dto.FrageDTOs.SingleFrageDTO;
+import com.example.examcrud.dto.AntwortenDTOs.Update_Antwort_Request_DTO;
+import com.example.examcrud.dto.FrageDTOs.*;
 import com.example.examcrud.entity.Fach;
 import com.example.examcrud.entity.Frage;
 import com.example.examcrud.entity.Themengebiet;
@@ -35,17 +33,17 @@ public class Frage_Service {
         List<FrageDTO> frageDTOList = new ArrayList<>();
         Optional<Themengebiet> themengebiet = themengebietRepository.findById(themengebietId);
 
-        if (themengebiet.isEmpty()){
+        if (themengebiet.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         List<Frage> frageList = frageRepository.findByThemengebiet(themengebiet.get());
 
-        for (Frage frage : frageList){
+        for (Frage frage : frageList) {
             frageDTOList.add(FrageDTO.builder()
-                            .id(frage.getId())
-                            .name(frage.getName())
-                            .faecherId(frage.getFaecher().getId())
-                            .themengebietId(frage.getThemengebiet().getId())
+                    .id(frage.getId())
+                    .name(frage.getName())
+                    .faecherId(frage.getFaecher().getId())
+                    .themengebietId(frage.getThemengebiet().getId())
 //                            .antwortListe(frage.getAntwortListe())
                     .build());
         }
@@ -57,7 +55,7 @@ public class Frage_Service {
         Optional<Fach> fach = fachRepository.findById(frageRequestDto.getFachId());
         Optional<Themengebiet> themengebiet = themengebietRepository.findById(frageRequestDto.getThemengebietId());
 
-        if (fach.isEmpty() || themengebiet.isEmpty()){
+        if (fach.isEmpty() || themengebiet.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
@@ -85,5 +83,32 @@ public class Frage_Service {
                 .id(frage.get().getId())
                 .name(frage.get().getName())
                 .build();
+    }
+
+    public Update_Frage_Response_DTO updateFrage(Update_Antwort_Request_DTO updateAntwortRequestDto, int frageId) {
+        Optional<Frage> frage = frageRepository.findById(frageId);
+
+        if (frage.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        frage.get().setName(updateAntwortRequestDto.getName());
+        frageRepository.save(frage.get());
+
+        return Update_Frage_Response_DTO.builder()
+                .id(frage.get().getId())
+                .name(frage.get().getName())
+                .faecherId(frage.get().getFaecher().getId())
+                .themengebietId(frage.get().getThemengebiet().getId())
+                .build();
+    }
+
+    public String deleteFrage(int frageId) {
+        Optional<Frage> frage = frageRepository.findById(frageId);
+
+        if (frage.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        frageRepository.delete(frage.get());
+        return "Erfolgreich gelöscht";
     }
 }

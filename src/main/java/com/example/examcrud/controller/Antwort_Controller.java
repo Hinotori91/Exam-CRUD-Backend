@@ -1,8 +1,6 @@
 package com.example.examcrud.controller;
 
-import com.example.examcrud.dto.AntwortenDTOs.Add_Antwort_Request_DTO;
-import com.example.examcrud.dto.AntwortenDTOs.Add_Antwort_Response_DTO;
-import com.example.examcrud.dto.AntwortenDTOs.AntwortDTO;
+import com.example.examcrud.dto.AntwortenDTOs.*;
 import com.example.examcrud.service.Antwort_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,5 +35,16 @@ public class Antwort_Controller {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
         return new ResponseEntity<>(addAntwortResponseDto, HttpStatus.OK);
+    }
+
+    @PutMapping("/{antwortId}")
+    public ResponseEntity<?> updateAntwort(@RequestBody Update_Antwort_Request_DTO updateAntwortRequestDto, @PathVariable int antwortId){
+        Update_Antwort_Response_DTO updateAntwortResponseDto;
+        try {
+            updateAntwortResponseDto = antwortService.updateAntwort(updateAntwortRequestDto, antwortId);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(updateAntwortResponseDto, HttpStatus.OK);
     }
 }

@@ -1,8 +1,6 @@
 package com.example.examcrud.service;
 
-import com.example.examcrud.dto.AntwortenDTOs.Add_Antwort_Request_DTO;
-import com.example.examcrud.dto.AntwortenDTOs.Add_Antwort_Response_DTO;
-import com.example.examcrud.dto.AntwortenDTOs.AntwortDTO;
+import com.example.examcrud.dto.AntwortenDTOs.*;
 import com.example.examcrud.entity.Antwort;
 import com.example.examcrud.entity.Frage;
 import com.example.examcrud.repository.Antwort_Repository;
@@ -60,5 +58,20 @@ public class Antwort_Service {
             .id(antwort.getId())
             .name(antwort.getName())
             .build();
+    }
+
+    public Update_Antwort_Response_DTO updateAntwort(Update_Antwort_Request_DTO updateAntwortRequestDto, int antwortId) {
+        Optional<Antwort> antwort = antwortRepository.findById(antwortId);
+
+        if (antwort.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        antwort.get().setName(updateAntwortRequestDto.getName());
+        antwortRepository.save(antwort.get());
+
+        return Update_Antwort_Response_DTO.builder()
+                .id(antwort.get().getId())
+                .name(antwort.get().getName())
+                .build();
     }
 }
