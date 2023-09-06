@@ -33,7 +33,7 @@ public class Frage {
     Themengebiet themengebiet;
 
     // Eine Frage kann mehrere Antworten haben
-    @OneToMany(mappedBy = "frage")
+    @OneToMany(mappedBy = "frage", cascade = CascadeType.ALL)
     @JsonBackReference
     private List<Antwort> antwortListe;
 

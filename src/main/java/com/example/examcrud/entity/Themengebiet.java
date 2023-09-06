@@ -19,7 +19,7 @@ public class Themengebiet {
     private String name;
 
     // Ein Themengebiet kann mehrere Fragen haben
-    @OneToMany(mappedBy = "themengebiet")
+    @OneToMany(mappedBy = "themengebiet", cascade = CascadeType.ALL)
     private List<Frage> fragenListe;
 
     // Mehrere Themengebiete können ein Fach haben

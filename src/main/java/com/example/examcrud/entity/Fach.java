@@ -20,10 +20,10 @@ public class Fach {
     private String name;
 
     // Ein Fach kann mehrere Fragen haben!
-    @OneToMany(mappedBy = "faecher", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "faecher", cascade = CascadeType.ALL)
     private List<Frage> frageListe;
 
     // Ein Fach kann mehrere Themengebiete haben
-    @OneToMany(mappedBy = "fach", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "fach", cascade = CascadeType.ALL)
     private List<Themengebiet> themengebietListe;
 }
