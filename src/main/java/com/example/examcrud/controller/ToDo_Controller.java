@@ -38,4 +38,15 @@ public class ToDo_Controller {
         }
         return new ResponseEntity<>(todoResponseDto, HttpStatus.OK);
     }
+
+    @PutMapping("/{taskId}")
+    public ResponseEntity<?> updateTask(@RequestBody Todo_Request_DTO todoRequestDto ,@PathVariable int taskId){
+        Todo_Response_DTO response;
+        try {
+            response = todoService.updateTask(todoRequestDto ,taskId);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }
