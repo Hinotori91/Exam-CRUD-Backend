@@ -2,6 +2,7 @@ package com.example.examcrud.service;
 
 import com.example.examcrud.dto.ToDo.Todo_Request_DTO;
 import com.example.examcrud.dto.ToDo.Todo_Response_DTO;
+import com.example.examcrud.entity.Kalender;
 import com.example.examcrud.entity.ToDo;
 import com.example.examcrud.repository.ToDo_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,5 +64,16 @@ public class Todo_Service {
                 .task(task.get().getName())
                 .checked(task.get().getChecked())
                 .build();
+    }
+
+    public String deleteTask(int taskId) {
+        Optional<ToDo> task = todoRepository.findById(taskId);
+
+        if (task.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+
+        todoRepository.delete(task.get());
+        return "Erfolgreich gelöscht!";
     }
 }

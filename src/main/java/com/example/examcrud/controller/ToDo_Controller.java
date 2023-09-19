@@ -49,4 +49,15 @@ public class ToDo_Controller {
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{taskId}")
+    public ResponseEntity<?> deleteEvent(@PathVariable int taskId){
+        String message;
+        try {
+            message = todoService.deleteTask(taskId);
+        }catch (Exception e){
+            return new ResponseEntity<>("Kein Eintrag mit dieser ID gefunden", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(message, HttpStatus.OK);
+    }
 }
