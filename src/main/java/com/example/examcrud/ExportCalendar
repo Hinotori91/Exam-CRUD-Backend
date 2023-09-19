@@ -1,0 +1,28 @@
+    BEGIN:VCALENDAR eröffnet jede iCalender-Datei.
+    VERSION:Hier ist die Version des Formats anzugeben. Diesen sollten Sie bei "2.0" belassen.
+    PRODID: Die sogenannte Pro-ID gibt die Instanz an, die das Dokument erstellt hat.
+    METHOD: Gibt die Art an, wie Sie dem Nutzer übermittelt wird. Es gibt im Grunde zwei Möglichkeiten: einerseits PUBLISH, welches den Eintrag sofort erscheinen lässt, andererseits REQUEST, das den Eintrag in eine Anfrage an den Nutzer verpackt.
+    BEGIN:VEVENT definiert den Beginn des Bereiches, in dem dann die relevanten Daten des Termins enthalten sind.
+    UID: Ist die Unique-ID einer ICS-Datei. Jeder Kalendereintrag braucht eine eigene unverwechselbare ID.
+    LOCATION: Hier ist der Veranstaltungsort anzugeben.
+    SUMMARY: Geben Sie in wenigen Worten den Inhalt wieder. Diese Information wird Ihnen schon bei der Kalenderübersicht angezeigt.
+    DESCRIPTION: Die ausführliche Beschreibsung kommt hier rein. Sie wird nur ersichtlich, nachdem Sie den Eintrag im Kalender geöffnet haben.
+    CLASS: Entscheiden Sie, ob Sie den Termin öffentlich oder privat speichern wollen. Geben Sie dementsprechend PUBLIC oder PRIVATE ein.
+    DTSTART gibt den Start des Kalendereintrags an, DTEND das Ende und DTSTAMP den Zeitpunkt, an dem der Eintrag erstellt wurde.
+    Alle 3 Parameter haben den selben Aufbau. Die ersten 4 Zahlen entsprechen dem Jahr, die nächsten 2 dem Monat, und die nächsten 2 dem Tag. Das T trennt Datum von Uhrzeit. Diese besteht aus den weiteren 6 Zahlen (2 für die Stunde, 2 für die Minute und 2 für die Sekunde). das Z beschließt die Datumsangabe.
+    END:VEVENT und END:VCALENDAR beenden das Ausführend der ICS-Datei.
+
+BEGIN:VCALENDAR
+VERSION:2.0
+PROID:LaMa - Learn and Management App
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:0000000000001
+LOCATION:WIEN
+SUMMARY:Exportiert am -Heutiges Datum-
+DESCRIPTION: Inhalt des Kalendereintrags
+CLASS:PUBLIC
+DTSTART:201712050000Z
+DTSTAMP:20171204T220000Z
+END:VEVENT
+END:VCALENDAR
