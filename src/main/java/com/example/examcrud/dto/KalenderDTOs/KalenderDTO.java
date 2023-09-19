@@ -2,6 +2,8 @@ package com.example.examcrud.dto.KalenderDTOs;
 
 import lombok.*;
 
+import java.sql.Time;
+
 @Builder
 @Getter
 @Setter
