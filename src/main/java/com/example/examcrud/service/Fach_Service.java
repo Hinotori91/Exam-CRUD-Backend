@@ -1,5 +1,6 @@
 package com.example.examcrud.service;
 
+import com.example.examcrud.algorithmus.Algorithmus;
 import com.example.examcrud.dto.FachDTOs.*;
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
 import com.example.examcrud.dto.ThemengebietDTOs.ThemengebietDTO;
@@ -8,7 +9,6 @@ import com.example.examcrud.entity.Frage;
 import com.example.examcrud.entity.Themengebiet;
 import com.example.examcrud.repository.Fach_Repository;
 import com.example.examcrud.repository.Frage_Repository;
-import com.example.examcrud.repository.Themengebiet_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -106,8 +106,7 @@ public class Fach_Service {
         return "Erfolgreich gelöscht!";
     }
 
-    public FrageDTO getFrageFromFach(int fachId) {
-        Random random = new Random();
+    public FrageDTO getSchlechtesteFrageFromFach(int fachId) {
         Optional<Fach> fach = fachRepository.findById(fachId);
 
         if (fach.isEmpty()) {
@@ -115,7 +114,7 @@ public class Fach_Service {
         }
         List<Frage> frageListe = frageRepository.findByFaecher(fach.get());
 
-        Frage frage = frageListe.get(random.nextInt(frageListe.size()));
+        Frage frage = Algorithmus.getNextFrage(frageListe);
 
         return FrageDTO.builder()
                 .id(frage.getId())

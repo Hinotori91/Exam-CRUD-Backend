@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Instant;
 import java.util.List;
 
 @Entity
@@ -17,9 +18,13 @@ public class Frage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String name;
 
+    //// Properties für den Algorithmus ////
+    private double altlast;
+    private Instant lastTry;  // ISO Zeitstempel wenn .toString aufgerufen wird
+    ////////////////////////////////////////
+    
     // Mehrere Fragen können ein Fach haben
     @ManyToOne
     @JoinColumn(name = "id_fach")
@@ -37,6 +42,5 @@ public class Frage {
     @JsonBackReference
     private List<Antwort> antwortListe;
 
-    //// CONSTRUCTOR ////
 
 }
