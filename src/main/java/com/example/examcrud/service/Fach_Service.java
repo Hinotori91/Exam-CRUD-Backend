@@ -110,19 +110,20 @@ public class Fach_Service {
         Random random = new Random();
         Optional<Fach> fach = fachRepository.findById(fachId);
 
-        if (fach.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        if (fach.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         List<Frage> frageListe = frageRepository.findByFaecher(fach.get());
 
-       Frage frage = frageListe.get(random.nextInt(frageListe.size()));
+        Frage frage = frageListe.get(random.nextInt(frageListe.size()));
 
-       return FrageDTO.builder()
-               .id(frage.getId())
-               .name(frage.getName())
-               .themengebietId(frage.getThemengebiet().getId())
-               .faecherId(frage.getFaecher().getId())
-               .build();
-//        return null;
+        return FrageDTO.builder()
+                .id(frage.getId())
+                .name(frage.getName())
+                .themengebietId(frage.getThemengebiet().getId())
+                .faecherId(frage.getFaecher().getId())
+                .build();
     }
+
+
 }
