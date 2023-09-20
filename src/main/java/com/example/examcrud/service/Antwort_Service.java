@@ -2,6 +2,7 @@ package com.example.examcrud.service;
 
 import com.example.examcrud.dto.AntwortenDTOs.*;
 import com.example.examcrud.entity.Antwort;
+import com.example.examcrud.entity.Fach;
 import com.example.examcrud.entity.Frage;
 import com.example.examcrud.repository.Antwort_Repository;
 import com.example.examcrud.repository.Frage_Repository;
@@ -35,43 +36,58 @@ public class Antwort_Service {
             antwortDTOList.add(AntwortDTO.builder()
                     .id(antwort.getId())
                     .name(antwort.getName())
+                    .richtig(antwort.isRichtig())
                     .build());
         }
         return antwortDTOList;
     }
 
     public Add_Antwort_Response_DTO addAntwortToFrage(Add_Antwort_Request_DTO addAntwortRequestDto) {
-    Optional<Frage> frage = frageRepository.findById(addAntwortRequestDto.getFrageId());
+        Optional<Frage> frage = frageRepository.findById(addAntwortRequestDto.getFrageId());
 
-    if(frage.isEmpty()){
-        throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-    }
-    Antwort antwort = Antwort.builder()
-            .name(addAntwortRequestDto.getName())
-            .richtig(addAntwortRequestDto.getRichtig())
-            .frage(frage.get())
-            .build();
+        if (frage.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        Antwort antwort = Antwort.builder()
+                .name(addAntwortRequestDto.getName())
+                .richtig(addAntwortRequestDto.getRichtig())
+                .frage(frage.get())
+                .build();
 
-    antwortRepository.save(antwort);
+        antwortRepository.save(antwort);
 
-    return Add_Antwort_Response_DTO.builder()
-            .id(antwort.getId())
-            .name(antwort.getName())
-            .build();
+        return Add_Antwort_Response_DTO.builder()
+                .id(antwort.getId())
+                .name(antwort.getName())
+                .richtig(antwort.isRichtig())
+                .build();
     }
 
     public Update_Antwort_Response_DTO updateAntwort(Update_Antwort_Request_DTO updateAntwortRequestDto, int antwortId) {
         Optional<Antwort> antwort = antwortRepository.findById(antwortId);
 
-        if (antwort.isEmpty()){
+        if (antwort.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         antwort.get().setName(updateAntwortRequestDto.getName());
+        antwort.get().setRichtig(updateAntwortRequestDto.getRichtig());
         antwortRepository.save(antwort.get());
 
         return Update_Antwort_Response_DTO.builder()
                 .id(antwort.get().getId())
                 .name(antwort.get().getName())
+                .richtig(antwort.get().isRichtig())
                 .build();
+    }
+
+    public String deleteAntwort(int antwortId) {
+        Optional<Antwort> antwort = antwortRepository.findById(antwortId);
+
+        if (antwort.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+
+        antwortRepository.delete(antwort.get());
+        return "Erfolgreich gelöscht!";
     }
 }

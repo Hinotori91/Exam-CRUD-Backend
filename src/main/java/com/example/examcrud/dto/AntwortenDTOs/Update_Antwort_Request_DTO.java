@@ -9,4 +9,5 @@ import lombok.*;
 @AllArgsConstructor
 public class Update_Antwort_Request_DTO {
     private String name;
+    private Boolean richtig;
 }

@@ -47,4 +47,15 @@ public class Antwort_Controller {
         }
         return new ResponseEntity<>(updateAntwortResponseDto, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{antwortId}")
+    public ResponseEntity<?> deleteAntwort(@PathVariable int antwortId){
+        String message;
+        try {
+            message = antwortService.deleteAntwort(antwortId);
+        }catch (Exception e){
+            return new ResponseEntity<>("Kein Eintrag mit dieser ID gefunden", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(message, HttpStatus.OK);
+    }
 }

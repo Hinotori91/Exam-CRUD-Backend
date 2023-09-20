@@ -22,7 +22,7 @@ public class Antwort {
     @JoinColumn(name = "id_Frage")
     @JsonManagedReference
     private Frage frage;
-    private boolean richtig = true;
+    private boolean richtig;
 
     //// CONSTRUCTOR ////
 

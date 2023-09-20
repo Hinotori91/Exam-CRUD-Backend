@@ -10,4 +10,5 @@ import lombok.*;
 public class Update_Antwort_Response_DTO {
     private int id;
     private String name;
+    private boolean richtig;
 }

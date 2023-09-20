@@ -10,4 +10,5 @@ import lombok.*;
 public class AntwortDTO {
     private int id;
     private String name;
+    private Boolean richtig;
 }

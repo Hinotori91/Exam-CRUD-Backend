@@ -86,4 +86,9 @@ public class Fach_Controller {
         }
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
+
+//    @GetMapping("/randomFrage/{fachId}")
+//    public ResponseEntity<?> getRandomFrageFromFach(@PathVariable int fachId){
+//
+//    }
 }
