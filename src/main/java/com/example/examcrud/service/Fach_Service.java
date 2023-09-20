@@ -3,6 +3,8 @@ package com.example.examcrud.service;
 import com.example.examcrud.algorithmus.Algorithmus;
 import com.example.examcrud.dto.FachDTOs.*;
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
+import com.example.examcrud.dto.FrageDTOs.GewichtungFrage_Request_DTO;
+import com.example.examcrud.dto.FrageDTOs.GewichtungFrage_Response_DTO;
 import com.example.examcrud.dto.ThemengebietDTOs.ThemengebietDTO;
 import com.example.examcrud.entity.Fach;
 import com.example.examcrud.entity.Frage;
@@ -125,4 +127,24 @@ public class Fach_Service {
     }
 
 
+    public GewichtungFrage_Response_DTO updateFrageMitGewicht(int frageId, GewichtungFrage_Request_DTO gewichtungFrageRequestDto) {
+        Optional<Frage> frage = frageRepository.findById(frageId);
+
+        if (frage.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+
+        frage.get().setAltlast(gewichtungFrageRequestDto.getAltlast());
+        frage.get().setLastTry(gewichtungFrageRequestDto.getLastTry());
+        frageRepository.save(frage.get());
+
+        return GewichtungFrage_Response_DTO.builder()
+                .id(frage.get().getId())
+                .name(frage.get().getName())
+                .altlast(frage.get().getAltlast())
+                .lastTry(frage.get().getLastTry())
+                .faecherId(frage.get().getFaecher().getId())
+                .themengebietId(frage.get().getThemengebiet().getId())
+                .build();
+    }
 }

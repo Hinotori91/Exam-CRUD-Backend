@@ -2,6 +2,8 @@ package com.example.examcrud.controller;
 
 import com.example.examcrud.dto.FachDTOs.*;
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
+import com.example.examcrud.dto.FrageDTOs.GewichtungFrage_Request_DTO;
+import com.example.examcrud.dto.FrageDTOs.GewichtungFrage_Response_DTO;
 import com.example.examcrud.service.Fach_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -63,11 +65,11 @@ public class Fach_Controller {
      * Bearbeitung eines bestimmten Fachs
      */
     @PutMapping("/{fachId}")
-    public ResponseEntity<?> updateOneFach(@PathVariable int fachId, @RequestBody FachDTO fachDTO){
+    public ResponseEntity<?> updateOneFach(@PathVariable int fachId, @RequestBody FachDTO fachDTO) {
         Response_FachDTO responseFachDTO;
         try {
             responseFachDTO = fachService.updateOneFach(fachId, fachDTO);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
         return new ResponseEntity<>(responseFachDTO, HttpStatus.OK);
@@ -78,24 +80,36 @@ public class Fach_Controller {
      * Löschung eines bestimmten Fachs
      */
     @DeleteMapping("/{fachId}")
-    public ResponseEntity <?> deleteOneFach(@PathVariable int fachId) {
+    public ResponseEntity<?> deleteOneFach(@PathVariable int fachId) {
         String message;
         try {
             message = fachService.deleteFach(fachId);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>("Kein Eintrag mit dieser ID gefunden", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
     @GetMapping("/randomFrage/{fachId}")
-    public ResponseEntity<?> getSchlechtesteFrageFromFach(@PathVariable int fachId){
+    public ResponseEntity<?> getSchlechtesteFrageFromFach(@PathVariable int fachId) {
         FrageDTO frage;
         try {
             frage = fachService.getSchlechtesteFrageFromFach(fachId);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>("Kein Eintrag mit dieser ID gefunden", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(frage, HttpStatus.OK);
+    }
+
+    @PutMapping("/randomFrage/update/{frageId}")
+    public ResponseEntity<?> updateFrageMitGewicht(@PathVariable int frageId, @RequestBody GewichtungFrage_Request_DTO gewichtungFrageRequestDto) {
+        GewichtungFrage_Response_DTO gewichtungFrageResponseDto;
+        try {
+            gewichtungFrageResponseDto = fachService.updateFrageMitGewicht(frageId, gewichtungFrageRequestDto);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Kein Eintrag gefunden", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(gewichtungFrageResponseDto, HttpStatus.OK);
+
     }
 }
