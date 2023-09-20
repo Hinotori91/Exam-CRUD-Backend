@@ -1,6 +1,9 @@
 package com.example.examcrud.controller;
 
 import com.example.examcrud.dto.FachDTOs.*;
+import com.example.examcrud.dto.FrageDTOs.FrageDTO;
+import com.example.examcrud.entity.Frage;
+import com.example.examcrud.repository.Frage_Repository;
 import com.example.examcrud.service.Fach_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -87,8 +90,14 @@ public class Fach_Controller {
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
-//    @GetMapping("/randomFrage/{fachId}")
-//    public ResponseEntity<?> getRandomFrageFromFach(@PathVariable int fachId){
-//
-//    }
+    @GetMapping("/randomFrage/{fachId}")
+    public ResponseEntity<?> getRandomFrageFromFach(@PathVariable int fachId){
+        FrageDTO frage;
+        try {
+            frage = fachService.getFrageFromFach(fachId);
+        }catch (Exception e){
+            return new ResponseEntity<>("Kein Eintrag mit dieser ID gefunden", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(frage, HttpStatus.OK);
+    }
 }

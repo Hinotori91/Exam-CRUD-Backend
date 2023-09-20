@@ -14,15 +14,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class Fach_Service {
     @Autowired
     Fach_Repository fachRepository;
+    @Autowired
+    Frage_Repository frageRepository;
 
     // Neues Fach hinzufügen
     public Add_Fach_Response_DTO addNewFach(Add_Fach_Request_DTO fachDTO) {
@@ -105,5 +104,25 @@ public class Fach_Service {
 
         fachRepository.delete(fach.get());
         return "Erfolgreich gelöscht!";
+    }
+
+    public FrageDTO getFrageFromFach(int fachId) {
+        Random random = new Random();
+        Optional<Fach> fach = fachRepository.findById(fachId);
+
+        if (fach.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        List<Frage> frageListe = frageRepository.findByFaecher(fach.get());
+
+       Frage frage = frageListe.get(random.nextInt(frageListe.size()));
+
+       return FrageDTO.builder()
+               .id(frage.getId())
+               .name(frage.getName())
+               .themengebietId(frage.getThemengebiet().getId())
+               .faecherId(frage.getFaecher().getId())
+               .build();
+//        return null;
     }
 }
