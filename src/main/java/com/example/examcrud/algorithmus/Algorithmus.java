@@ -1,6 +1,7 @@
 package com.example.examcrud.algorithmus;
 
 import com.example.examcrud.entity.Frage;
+import jakarta.persistence.criteria.CriteriaBuilder;
 
 import java.time.Instant;
 import java.util.Comparator;
@@ -9,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Algorithmus {
-    // Weil ich ein Bias von 10 haben möchte und nachher +1 rechnen muss!
-    private static final int GEWICHT_TIMEBIAS = 9;
+
+    private static final int GEWICHT_TIMEBIAS = 9;  // Weil ich ein Bias von 10 haben möchte und nachher +1 rechnen muss!
     private static final int GEWICHT_PROZENT_RICHTIG = 2;
     private static final int GEWICHT_ALTLAST = 3;
 
@@ -41,9 +42,17 @@ public class Algorithmus {
         Map<Double, Frage> map = new HashMap<>();
         long now = Instant.now().toEpochMilli();
         long maxMsVergangenheit = now - findOldest(liste).toEpochMilli();
+        Instant getLastTry;
 
         for (Frage frage : liste) {
-            double gewicht = frage.getAltlast() / calculateTimeBias(now, maxMsVergangenheit, frage.getLastTry());
+            if (frage.getLastTry() == null){
+                getLastTry = Instant.now();
+            }else {
+                getLastTry = frage.getLastTry();
+            }
+
+//            double gewicht = frage.getAltlast() / calculateTimeBias(now, maxMsVergangenheit, frage.getLastTry());
+            double gewicht = frage.getAltlast() / calculateTimeBias(now, maxMsVergangenheit, getLastTry);
             map.put(gewicht, frage);
         }
 

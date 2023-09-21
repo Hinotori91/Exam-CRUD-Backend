@@ -13,10 +13,6 @@ import java.time.Instant;
 public class GewichtungFrage_Response_DTO {
     private int id;
     private String name;
-
-    //// Properties für den Algorithmus ////
-    private double altlast;
-    private Instant lastTry;
     private int faecherId;
     private int themengebietId;
 }

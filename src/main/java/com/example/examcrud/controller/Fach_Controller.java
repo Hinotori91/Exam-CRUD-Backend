@@ -4,6 +4,7 @@ import com.example.examcrud.dto.FachDTOs.*;
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
 import com.example.examcrud.dto.FrageDTOs.GewichtungFrage_Request_DTO;
 import com.example.examcrud.dto.FrageDTOs.GewichtungFrage_Response_DTO;
+import com.example.examcrud.dto.FrageDTOs.ProzentRichtigDTO;
 import com.example.examcrud.service.Fach_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -102,10 +103,10 @@ public class Fach_Controller {
     }
 
     @PutMapping("/randomFrage/update/{frageId}")
-    public ResponseEntity<?> updateFrageMitGewicht(@PathVariable int frageId, @RequestBody GewichtungFrage_Request_DTO gewichtungFrageRequestDto) {
+    public ResponseEntity<?> updateFrageMitGewicht(@PathVariable int frageId, @RequestBody ProzentRichtigDTO prozentRichtigDTO) {
         GewichtungFrage_Response_DTO gewichtungFrageResponseDto;
         try {
-            gewichtungFrageResponseDto = fachService.updateFrageMitGewicht(frageId, gewichtungFrageRequestDto);
+            gewichtungFrageResponseDto = fachService.updateFrageMitGewicht(frageId, prozentRichtigDTO );
         } catch (Exception e) {
             return new ResponseEntity<>("Kein Eintrag gefunden", HttpStatus.BAD_REQUEST);
         }
