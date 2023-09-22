@@ -1,7 +1,10 @@
 package com.example.examcrud.service;
 
+import com.example.examcrud.algorithmus.Algorithmus;
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
 import com.example.examcrud.dto.FrageDTOs.Frage_DetailedThemengebiet_DTO;
+import com.example.examcrud.dto.FrageDTOs.GewichtungFrage_Response_DTO;
+import com.example.examcrud.dto.FrageDTOs.ProzentRichtigDTO;
 import com.example.examcrud.dto.ThemengebietDTOs.*;
 import com.example.examcrud.entity.Fach;
 import com.example.examcrud.entity.Frage;
@@ -14,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -144,4 +148,42 @@ public class Themengebiet_Service {
                 .name(themengebiet.get().getName())
                 .build();
     }
+
+    public FrageDTO getSchlechtesteFrageFromThemengebiet(int themengebietId) {
+        Optional<Themengebiet> themengebiet = themengebietRepository.findById(themengebietId);
+
+        if (themengebiet.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        List<Frage> frageList = frageRepository.findByThemengebiet(themengebiet.get());
+
+        Frage frage = Algorithmus.getNextFrage(frageList);
+
+        return FrageDTO.builder()
+                .id(frage.getId())
+                .name(frage.getName())
+                .themengebietId(frage.getThemengebiet().getId())
+                .faecherId(frage.getFaecher().getId())
+                .build();
+    }
+
+    public GewichtungFrage_Response_DTO updateFrageMitGewichtThemengebiet(int frageId, ProzentRichtigDTO prozentRichtig) {
+        Optional<Frage> frage = frageRepository.findById(frageId);
+
+        if (frage.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+
+        frage.get().setAltlast(Algorithmus.calculateNeulast(prozentRichtig.getProzentRichtig(), frage.get().getAltlast()));
+        frage.get().setLastTry(Instant.now());
+        frageRepository.save(frage.get());
+
+        return GewichtungFrage_Response_DTO.builder()
+                .id(frage.get().getId())
+                .name(frage.get().getName())
+                .faecherId(frage.get().getFaecher().getId())
+                .themengebietId(frage.get().getThemengebiet().getId())
+                .build();
+    }
 }
+

@@ -1,6 +1,9 @@
 package com.example.examcrud.controller;
 
 import com.example.examcrud.dto.FachDTOs.Get_One_Fach_Response_DTO;
+import com.example.examcrud.dto.FrageDTOs.FrageDTO;
+import com.example.examcrud.dto.FrageDTOs.GewichtungFrage_Response_DTO;
+import com.example.examcrud.dto.FrageDTOs.ProzentRichtigDTO;
 import com.example.examcrud.dto.ThemengebietDTOs.*;
 import com.example.examcrud.service.Themengebiet_Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,4 +98,26 @@ public class Themengebiet_Controller {
         return new ResponseEntity<>(updateResponseThemengebietDto, HttpStatus.OK);
     }
 
+    @GetMapping("/randomFrage/{themengebietId}")
+    public ResponseEntity<?> getSchlechtesteFrageFromThemengebiet(@PathVariable int themengebietId){
+       FrageDTO frage;
+       try{
+           frage = themengebietService.getSchlechtesteFrageFromThemengebiet(themengebietId);
+       }catch (Exception e){
+           return new ResponseEntity<>("Kein Eintrag mit dieser Id gefunden", HttpStatus.BAD_REQUEST);
+       }
+       return new ResponseEntity<>(frage, HttpStatus.OK);
+    }
+
+    @PutMapping("/randomFrage/update/{frageId}")
+    public ResponseEntity<?> updateFrageMitGewichtThemengebiet(@PathVariable int frageId, @RequestBody ProzentRichtigDTO prozentRichtigDTO) {
+        GewichtungFrage_Response_DTO gewichtungFrageResponseDto;
+        try {
+            gewichtungFrageResponseDto = themengebietService.updateFrageMitGewichtThemengebiet(frageId, prozentRichtigDTO );
+        } catch (Exception e) {
+            return new ResponseEntity<>("Kein Eintrag gefunden", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(gewichtungFrageResponseDto, HttpStatus.OK);
+
+    }
 }
