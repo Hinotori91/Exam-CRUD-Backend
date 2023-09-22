@@ -1,10 +1,8 @@
 package com.example.examcrud.algorithmus;
 
 import com.example.examcrud.entity.Frage;
-import jakarta.persistence.criteria.CriteriaBuilder;
 
 import java.time.Instant;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
