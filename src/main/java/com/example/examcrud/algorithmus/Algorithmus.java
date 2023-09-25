@@ -75,7 +75,7 @@ public class Algorithmus {
      * @return Zahl zwischen 1 und gewichtTimeBias +1. Umso länger in der Vergangenheit umso höher die Zahl
      */
     public static double calculateTimeBias(long now, long maxMsVergangenheit, Instant toCheck) {
-        // Wenn frage bisher noch nie beantwortet ist das bias die max bias zahl
+        // Wenn frage bisher noch nie beantwortet wurde ist das bias die max bias zahl
         if (maxMsVergangenheit == 0) {
             return GEWICHT_TIMEBIAS + 1;
         }
