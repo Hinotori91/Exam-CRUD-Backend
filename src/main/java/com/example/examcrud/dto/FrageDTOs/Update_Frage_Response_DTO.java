@@ -12,4 +12,5 @@ public class Update_Frage_Response_DTO {
     private String name;
     private int faecherId;
     private int themengebietId;
+    private boolean examMode;
 }

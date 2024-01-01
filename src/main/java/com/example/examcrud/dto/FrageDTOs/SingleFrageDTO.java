@@ -10,4 +10,5 @@ import lombok.*;
 public class SingleFrageDTO {
     private int id;
     private String name;
+    private boolean examMode;
 }

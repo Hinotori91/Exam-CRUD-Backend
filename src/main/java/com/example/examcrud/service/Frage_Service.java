@@ -44,7 +44,8 @@ public class Frage_Service {
                     .name(frage.getName())
                     .faecherId(frage.getFaecher().getId())
                     .themengebietId(frage.getThemengebiet().getId())
-//                            .antwortListe(frage.getAntwortListe())
+                    .examMode((frage.isExamMode()))
+//                     .antwortListe(frage.getAntwortListe())
                     .build());
         }
 
@@ -63,6 +64,7 @@ public class Frage_Service {
                 .name(frageRequestDto.getName())
                 .faecher(fach.get())
                 .themengebiet(themengebiet.get())
+                .examMode(frageRequestDto.isExamMode())
                 .build();
 
         frageRepository.save(frage);
@@ -72,6 +74,7 @@ public class Frage_Service {
                 .name(frage.getName())
                 .fachId(frage.getFaecher().getId())
                 .themengebietId(frage.getThemengebiet().getId())
+                .examMode(frage.isExamMode())
                 .build();
     }
 
@@ -82,6 +85,7 @@ public class Frage_Service {
         return SingleFrageDTO.builder()
                 .id(frage.get().getId())
                 .name(frage.get().getName())
+                .examMode(frage.get().isExamMode())
                 .build();
     }
 
@@ -92,6 +96,7 @@ public class Frage_Service {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         frage.get().setName(updateAntwortRequestDto.getName());
+        frage.get().setExamMode(updateAntwortRequestDto.getExamMode());
         frageRepository.save(frage.get());
 
         return Update_Frage_Response_DTO.builder()
@@ -99,6 +104,7 @@ public class Frage_Service {
                 .name(frage.get().getName())
                 .faecherId(frage.get().getFaecher().getId())
                 .themengebietId(frage.get().getThemengebiet().getId())
+                .examMode(frage.get().isExamMode())
                 .build();
     }
 

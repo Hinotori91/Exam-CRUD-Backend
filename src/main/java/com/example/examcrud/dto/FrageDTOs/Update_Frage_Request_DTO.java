@@ -9,4 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 public class Update_Frage_Request_DTO {
     private String name;
+    private boolean examMode;
+
 }
