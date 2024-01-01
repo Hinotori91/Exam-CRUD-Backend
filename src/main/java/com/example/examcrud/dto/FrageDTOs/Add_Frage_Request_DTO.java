@@ -11,4 +11,5 @@ public class Add_Frage_Request_DTO {
     private String name;
     private int fachId;
     private int themengebietId;
+    private boolean examMode;
 }

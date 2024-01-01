@@ -23,6 +23,7 @@ public class Frage {
     //// Properties für den Algorithmus ////
     private double altlast;
     private Instant lastTry;  // ISO Zeitstempel wenn .toString aufgerufen wird
+    private boolean examMode;
     ////////////////////////////////////////
     
     // Mehrere Fragen können ein Fach haben

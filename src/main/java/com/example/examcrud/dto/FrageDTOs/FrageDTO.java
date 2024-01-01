@@ -16,5 +16,6 @@ public class FrageDTO {
     private int faecherId;
     private int themengebietId;
 //    private List<AntwortDTO> antwortListe;
+//    private boolean examMode;
 
 }
