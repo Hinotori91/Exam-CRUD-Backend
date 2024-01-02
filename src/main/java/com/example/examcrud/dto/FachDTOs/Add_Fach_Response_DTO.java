@@ -8,6 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Add_Fach_Response_DTO {
-    private int id;
-    private String name;
+	private int id;
+	private String name;
 }

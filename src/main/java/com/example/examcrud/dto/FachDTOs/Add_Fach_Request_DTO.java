@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Add_Fach_Request_DTO {
-    private String name;
-    private int fachId;
-    private int themengebietId;
+	private String name;
+	private int fachId;
+	private int themengebietId;
 }

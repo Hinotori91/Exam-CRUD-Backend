@@ -2,7 +2,6 @@ package com.example.examcrud.controller;
 
 import com.example.examcrud.dto.FachDTOs.*;
 import com.example.examcrud.dto.FrageDTOs.FrageDTO;
-import com.example.examcrud.dto.FrageDTOs.GewichtungFrage_Request_DTO;
 import com.example.examcrud.dto.FrageDTOs.GewichtungFrage_Response_DTO;
 import com.example.examcrud.dto.FrageDTOs.ProzentRichtigDTO;
 import com.example.examcrud.service.Fach_Service;
@@ -17,100 +16,100 @@ import java.util.List;
 @RequestMapping("/api/fach")
 public class Fach_Controller {
 
-    @Autowired
-    Fach_Service fachService;
+	@Autowired
+	Fach_Service fachService;
 
-    /*
-     * Erstellung eines neuen Fachs
-     */
-    @PostMapping
-    public ResponseEntity<?> addNewFach(@RequestBody Add_Fach_Request_DTO fachDTO) {
-        Add_Fach_Response_DTO responseFachDTO;
-        try {
-            responseFachDTO = fachService.addNewFach(fachDTO);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
-        }
-        return new ResponseEntity<>(responseFachDTO, HttpStatus.OK);
-    }
+	/*
+	 * Erstellung eines neuen Fachs
+	 */
+	@PostMapping
+	public ResponseEntity<?> addNewFach(@RequestBody Add_Fach_Request_DTO fachDTO) {
+		Add_Fach_Response_DTO responseFachDTO;
+		try {
+			responseFachDTO = fachService.addNewFach(fachDTO);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+		}
+		return new ResponseEntity<>(responseFachDTO, HttpStatus.OK);
+	}
 
-    /*
-     * Ausgabe aller bestehenden Fächer
-     */
-    @GetMapping
-    public ResponseEntity<?> getAllFaecher() {
-        List<Get_All_Fach_Response_DTO> responseFachDTOList;
-        try {
-            responseFachDTOList = fachService.getAllFaecher();
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(responseFachDTOList, HttpStatus.OK);
-    }
+	/*
+	 * Ausgabe aller bestehenden Fächer
+	 */
+	@GetMapping
+	public ResponseEntity<?> getAllFaecher() {
+		List<Get_All_Fach_Response_DTO> responseFachDTOList;
+		try {
+			responseFachDTOList = fachService.getAllFaecher();
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<>(responseFachDTOList, HttpStatus.OK);
+	}
 
-    /*
-     * Ausgabe eines bestimmten Fachs
-     */
-    @GetMapping("/{fachId}")
-    public ResponseEntity<?> getOneFach(@PathVariable int fachId) {
-        Get_One_Fach_Response_DTO responseFachDTO;
-        try {
-            responseFachDTO = fachService.getOneFach(fachId);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(responseFachDTO, HttpStatus.OK);
-    }
+	/*
+	 * Ausgabe eines bestimmten Fachs
+	 */
+	@GetMapping("/{fachId}")
+	public ResponseEntity<?> getOneFach(@PathVariable int fachId) {
+		Get_One_Fach_Response_DTO responseFachDTO;
+		try {
+			responseFachDTO = fachService.getOneFach(fachId);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<>(responseFachDTO, HttpStatus.OK);
+	}
 
-    /*
-     * Bearbeitung eines bestimmten Fachs
-     */
-    @PutMapping("/{fachId}")
-    public ResponseEntity<?> updateOneFach(@PathVariable int fachId, @RequestBody FachDTO fachDTO) {
-        Response_FachDTO responseFachDTO;
-        try {
-            responseFachDTO = fachService.updateOneFach(fachId, fachDTO);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
-        }
-        return new ResponseEntity<>(responseFachDTO, HttpStatus.OK);
-    }
+	/*
+	 * Bearbeitung eines bestimmten Fachs
+	 */
+	@PutMapping("/{fachId}")
+	public ResponseEntity<?> updateOneFach(@PathVariable int fachId, @RequestBody FachDTO fachDTO) {
+		Response_FachDTO responseFachDTO;
+		try {
+			responseFachDTO = fachService.updateOneFach(fachId, fachDTO);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+		}
+		return new ResponseEntity<>(responseFachDTO, HttpStatus.OK);
+	}
 
 
-    /*
-     * Löschung eines bestimmten Fachs
-     */
-    @DeleteMapping("/{fachId}")
-    public ResponseEntity<?> deleteOneFach(@PathVariable int fachId) {
-        String message;
-        try {
-            message = fachService.deleteFach(fachId);
-        } catch (Exception e) {
-            return new ResponseEntity<>("Kein Eintrag mit dieser ID gefunden", HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(message, HttpStatus.OK);
-    }
+	/*
+	 * Löschung eines bestimmten Fachs
+	 */
+	@DeleteMapping("/{fachId}")
+	public ResponseEntity<?> deleteOneFach(@PathVariable int fachId) {
+		String message;
+		try {
+			message = fachService.deleteFach(fachId);
+		} catch (Exception e) {
+			return new ResponseEntity<>("Kein Eintrag mit dieser ID gefunden", HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<>(message, HttpStatus.OK);
+	}
 
-    @GetMapping("/randomFrage/{fachId}")
-    public ResponseEntity<?> getSchlechtesteFrageFromFach(@PathVariable int fachId) {
-        FrageDTO frage;
-        try {
-            frage = fachService.getSchlechtesteFrageFromFach(fachId);
-        } catch (Exception e) {
-            return new ResponseEntity<>("Kein Eintrag mit dieser ID gefunden", HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(frage, HttpStatus.OK);
-    }
+	@GetMapping("/randomFrage/{fachId}")
+	public ResponseEntity<?> getSchlechtesteFrageFromFach(@PathVariable int fachId) {
+		FrageDTO frage;
+		try {
+			frage = fachService.getSchlechtesteFrageFromFach(fachId);
+		} catch (Exception e) {
+			return new ResponseEntity<>("Kein Eintrag mit dieser ID gefunden", HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<>(frage, HttpStatus.OK);
+	}
 
-    @PutMapping("/randomFrage/update/{frageId}")
-    public ResponseEntity<?> updateFrageMitGewicht(@PathVariable int frageId, @RequestBody ProzentRichtigDTO prozentRichtigDTO) {
-        GewichtungFrage_Response_DTO gewichtungFrageResponseDto;
-        try {
-            gewichtungFrageResponseDto = fachService.updateFrageMitGewicht(frageId, prozentRichtigDTO );
-        } catch (Exception e) {
-            return new ResponseEntity<>("Kein Eintrag gefunden", HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(gewichtungFrageResponseDto, HttpStatus.OK);
+	@PutMapping("/randomFrage/update/{frageId}")
+	public ResponseEntity<?> updateFrageMitGewicht(@PathVariable int frageId, @RequestBody ProzentRichtigDTO prozentRichtigDTO) {
+		GewichtungFrage_Response_DTO gewichtungFrageResponseDto;
+		try {
+			gewichtungFrageResponseDto = fachService.updateFrageMitGewicht(frageId, prozentRichtigDTO);
+		} catch (Exception e) {
+			return new ResponseEntity<>("Kein Eintrag gefunden", HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<>(gewichtungFrageResponseDto, HttpStatus.OK);
 
-    }
+	}
 }

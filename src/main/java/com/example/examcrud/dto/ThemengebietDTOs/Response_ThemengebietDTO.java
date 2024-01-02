@@ -11,8 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Response_ThemengebietDTO {
-    private int id;
-    private String name;
-    private List<FrageDTO> fragenListe;
-    private int fachId;
+	private int id;
+	private String name;
+	private List<FrageDTO> fragenListe;
+	private int fachId;
 }

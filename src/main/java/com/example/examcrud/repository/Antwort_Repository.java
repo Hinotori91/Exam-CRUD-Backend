@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface Antwort_Repository extends JpaRepository<Antwort, Integer> {
-    List<Antwort> findByFrage(Frage frage);
+	List<Antwort> findByFrage(Frage frage);
 }

@@ -6,8 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
-import java.sql.Time;
-
 @Entity
 @Builder
 @Getter
@@ -15,14 +13,14 @@ import java.sql.Time;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Kalender {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-    private long millisekunden; // Für das genaue Datum inklusive Uhrzeit
-    private String timeStart;
-    private String timeEnd;
-    private String event;
-    private String kategorie;
+	private long millisekunden; // Für das genaue Datum inklusive Uhrzeit
+	private String timeStart;
+	private String timeEnd;
+	private String event;
+	private String kategorie;
 
 }

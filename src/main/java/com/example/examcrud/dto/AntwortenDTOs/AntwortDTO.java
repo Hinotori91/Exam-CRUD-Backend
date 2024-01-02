@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AntwortDTO {
-    private int id;
-    private String name;
-    private Boolean richtig;
+	private int id;
+	private String name;
+	private Boolean richtig;
 }

@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Get_One_Themengebiet_Response_DTO {
-    private int id;
-    private String name;
-    private int fachId;
+	private int id;
+	private String name;
+	private int fachId;
 }

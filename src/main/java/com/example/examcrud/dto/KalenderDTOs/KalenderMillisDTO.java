@@ -8,5 +8,5 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class KalenderMillisDTO {
-    private long millisekunden;
+	private long millisekunden;
 }

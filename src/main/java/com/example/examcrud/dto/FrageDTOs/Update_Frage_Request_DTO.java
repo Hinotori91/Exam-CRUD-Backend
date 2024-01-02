@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Update_Frage_Request_DTO {
-    private String name;
-    private boolean examMode;
+	private String name;
+	private boolean examMode;
 
 }

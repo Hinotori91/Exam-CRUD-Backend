@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface Kalender_Repository extends JpaRepository<Kalender, Integer> {
-    List<Kalender> findByMillisekunden(long millisekunden);
+	List<Kalender> findByMillisekunden(long millisekunden);
 
 }

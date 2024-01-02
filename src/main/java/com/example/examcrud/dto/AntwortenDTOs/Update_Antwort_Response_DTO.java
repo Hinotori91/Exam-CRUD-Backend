@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Update_Antwort_Response_DTO {
-    private int id;
-    private String name;
-    private boolean richtig;
+	private int id;
+	private String name;
+	private boolean richtig;
 }

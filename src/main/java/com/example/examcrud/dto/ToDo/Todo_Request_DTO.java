@@ -8,6 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Todo_Request_DTO {
-    private String task;
-    private Boolean checked;
+	private String task;
+	private Boolean checked;
 }

@@ -12,21 +12,21 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Themengebiet {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-    private String name;
+	private String name;
 
-    // Ein Themengebiet kann mehrere Fragen haben
-    @OneToMany(mappedBy = "themengebiet", cascade = CascadeType.ALL)
-    private List<Frage> fragenListe;
+	// Ein Themengebiet kann mehrere Fragen haben
+	@OneToMany(mappedBy = "themengebiet", cascade = CascadeType.ALL)
+	private List<Frage> fragenListe;
 
-    // Mehrere Themengebiete können ein Fach haben
-    @ManyToOne
-    @JoinColumn(name = "fachId")
-    private Fach fach;
+	// Mehrere Themengebiete können ein Fach haben
+	@ManyToOne
+	@JoinColumn(name = "fachId")
+	private Fach fach;
 
-    //// CONSTRUCTOR ////
+	//// CONSTRUCTOR ////
 
 }

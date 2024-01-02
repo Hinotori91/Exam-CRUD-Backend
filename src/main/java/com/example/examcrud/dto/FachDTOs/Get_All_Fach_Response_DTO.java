@@ -1,9 +1,6 @@
 package com.example.examcrud.dto.FachDTOs;
 
-import com.example.examcrud.dto.ThemengebietDTOs.ThemengebietDTO;
 import lombok.*;
-
-import java.util.List;
 
 @Builder
 @Getter
@@ -11,7 +8,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Get_All_Fach_Response_DTO {
-    private int id;
-    private String name;
+	private int id;
+	private String name;
 }
 

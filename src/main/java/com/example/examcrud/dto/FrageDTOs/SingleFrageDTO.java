@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SingleFrageDTO {
-    private int id;
-    private String name;
-    private boolean examMode;
+	private int id;
+	private String name;
+	private boolean examMode;
 }

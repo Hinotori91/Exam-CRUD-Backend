@@ -8,9 +8,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Add_Frage_Response_DTO {
-    private int id;
-    private String name;
-    private int fachId;
-    private int themengebietId;
-    private boolean examMode;
+	private int id;
+	private String name;
+	private int fachId;
+	private int themengebietId;
+	private boolean examMode;
 }

@@ -11,19 +11,19 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Antwort {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-    private String name;
+	private String name;
 
-    // Mehrere Antworten können eine Frage haben
-    @ManyToOne
-    @JoinColumn(name = "id_Frage")
-    @JsonManagedReference
-    private Frage frage;
-    private boolean richtig;
+	// Mehrere Antworten können eine Frage haben
+	@ManyToOne
+	@JoinColumn(name = "id_Frage")
+	@JsonManagedReference
+	private Frage frage;
+	private boolean richtig;
 
-    //// CONSTRUCTOR ////
+	//// CONSTRUCTOR ////
 
 }

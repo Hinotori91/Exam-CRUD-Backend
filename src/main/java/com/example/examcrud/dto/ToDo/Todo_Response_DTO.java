@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Todo_Response_DTO {
-    private int id;
-    private String task;
-    private Boolean checked;
+	private int id;
+	private String task;
+	private Boolean checked;
 }
