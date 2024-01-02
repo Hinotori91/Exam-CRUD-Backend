@@ -10,9 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Stream;
 
 @Service
 public class Antwort_Service {
@@ -23,22 +22,64 @@ public class Antwort_Service {
 
 
 	public List<AntwortDTO> getAllAntwortenFromFrage(int frageId) {
-		List<AntwortDTO> antwortDTOList = new ArrayList<>();
 		Optional<Frage> frage = frageRepository.findById(frageId);
-
 		if (frage.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		List<Antwort> antwortList = antwortRepository.findByFrage(frage.get());
 
-		for (Antwort antwort : antwortList) {
-			antwortDTOList.add(AntwortDTO.builder()
-					.id(antwort.getId())
-					.name(antwort.getName())
-					.richtig(antwort.isRichtig())
-					.build());
+		List<AntwortDTO> antwortDTOList = new ArrayList<>();
+
+		for (Antwort antwort : antwortRepository.findByFrage(frage.get())) {
+			antwortDTOList.add(toAntwortDTO(antwort));
 		}
+
 		return antwortDTOList;
+	}
+
+
+	public List<AntwortDTO> getPlayAntwortenFromFrage(int frageId) {
+		Optional<Frage> frage = frageRepository.findById(frageId);
+		if (frage.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+
+		List<Antwort> antwortList = antwortRepository.findByFrage(frage.get());
+		Collections.shuffle(antwortList);
+
+		if (frage.get().isExamMode()) {
+			return antwortList.stream()
+					.map(Antwort_Service::toAntwortDTO)
+					.toList();
+		}
+
+		Optional<Antwort> correct = antwortList.stream()
+				.filter(a -> a.isRichtig())
+				.findAny();
+
+		// at least one answer has to be correct!
+		if (correct.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		// three random incorrect answers
+		List<Antwort> incorrect = antwortList.stream()
+				.filter(a -> !a.isRichtig())
+				.limit(3)
+				.toList();
+
+		return Stream.concat( // merging the correct and the incorrect elements
+						Stream.of(correct.get()),
+						incorrect.stream())
+				.map(Antwort_Service::toAntwortDTO)
+				.toList();
+	}
+
+	private static AntwortDTO toAntwortDTO(Antwort a) {
+		return AntwortDTO.builder()
+				.id(a.getId())
+				.name(a.getName())
+				.richtig(a.isRichtig())
+				.build();
 	}
 
 	public Add_Antwort_Response_DTO addAntwortToFrage(Add_Antwort_Request_DTO addAntwortRequestDto) {

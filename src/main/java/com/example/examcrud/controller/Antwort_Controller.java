@@ -26,6 +26,17 @@ public class Antwort_Controller {
 		return new ResponseEntity<>(antwortListDTO, HttpStatus.OK);
 	}
 
+	@GetMapping("/play/{frageId}")
+	public ResponseEntity<?> getPlayAntwortenFromFrage(@PathVariable int frageId) {
+		List<AntwortDTO> antwortListDTO;
+		try {
+			antwortListDTO = antwortService.getPlayAntwortenFromFrage(frageId);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<>(antwortListDTO, HttpStatus.OK);
+	}
+
 	@PostMapping
 	public ResponseEntity<?> addNewAntwortToFrage(@RequestBody Add_Antwort_Request_DTO addAntwortRequestDto) {
 		Add_Antwort_Response_DTO addAntwortResponseDto;

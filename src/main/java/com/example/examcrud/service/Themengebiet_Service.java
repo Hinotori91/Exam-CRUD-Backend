@@ -32,29 +32,29 @@ public class Themengebiet_Service {
 	Frage_Repository frageRepository;
 
 	public List<Get_All_Themengebiet_Response_DTO> getAllThemengebiete() {
-		List<Themengebiet> themengebietList = themengebietRepository.findAll();
 		List<Get_All_Themengebiet_Response_DTO> tgList = new ArrayList<>();
 
-		for (Themengebiet tg : themengebietList) {
+		for (Themengebiet tg : themengebietRepository.findAll()) {
 			tgList.add(Get_All_Themengebiet_Response_DTO.builder()
 					.id(tg.getId())
 					.name(tg.getName())
 					.fachId(tg.getFach().getId())
 					.build());
 		}
+
 		return tgList;
 	}
 
 	public List<ThemengebietDTO> getAllThemengebieteFromOneFach(int fachId) {
 		Optional<Fach> fach = fachRepository.findById(fachId);
-		List<Themengebiet> themengebietList;
-		List<ThemengebietDTO> themengebietListDTO = new ArrayList<>();
 
 		if (fach.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		themengebietList = themengebietRepository.findByFach(fach.get());
-		for (Themengebiet tg : themengebietList) {
+
+		List<ThemengebietDTO> themengebietListDTO = new ArrayList<>();
+
+		for (Themengebiet tg : themengebietRepository.findByFach(fach.get())) {
 			themengebietListDTO.add(ThemengebietDTO.builder()
 					.id(tg.getId())
 					.name(tg.getName())
@@ -84,10 +84,10 @@ public class Themengebiet_Service {
 		if (themengebiet.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		List<Frage> frageList = frageRepository.findByThemengebiet(themengebiet.get());
+
 		List<Frage_DetailedThemengebiet_DTO> frageDTOList = new ArrayList<>();
 
-		for (Frage frage : frageList) {
+		for (Frage frage : frageRepository.findByThemengebiet(themengebiet.get())) {
 			frageDTOList.add(Frage_DetailedThemengebiet_DTO.builder()
 					.id(frage.getId())
 					.name(frage.getName())
@@ -104,13 +104,12 @@ public class Themengebiet_Service {
 	}
 
 	public Add_Themengebiet_Response_DTO addNewThemengebiet(Add_Themengebiet_Request_DTO requestThemengebetDTO) {
-		System.out.println(requestThemengebetDTO.getFachId());
-
 		Optional<Fach> fach = fachRepository.findById(requestThemengebetDTO.getFachId());
 
 		if (fach.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.CONFLICT);
 		}
+
 		Themengebiet themengebiet = Themengebiet.builder()
 				.name(requestThemengebetDTO.getName())
 				.fach(fach.get())
@@ -140,6 +139,7 @@ public class Themengebiet_Service {
 		if (themengebiet.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.CONFLICT);
 		}
+
 		themengebiet.get().setName(themengebietDTO.getName());
 		themengebietRepository.save(themengebiet.get());
 
@@ -155,9 +155,8 @@ public class Themengebiet_Service {
 		if (themengebiet.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}
-		List<Frage> frageList = frageRepository.findByThemengebiet(themengebiet.get());
 
-		Frage frage = Algorithmus.getNextFrage(frageList);
+		Frage frage = Algorithmus.getNextFrage(frageRepository.findByThemengebiet(themengebiet.get()));
 
 		return FrageDTO.builder()
 				.id(frage.getId())
@@ -174,7 +173,9 @@ public class Themengebiet_Service {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}
 
-		frage.get().setAltlast(Algorithmus.calculateNeulast(prozentRichtig.getProzentRichtig(), frage.get().getAltlast()));
+		frage.get().setAltlast(Algorithmus.calculateNeulast(
+				prozentRichtig.getProzentRichtig(),
+				frage.get().getAltlast()));
 		frage.get().setLastTry(Instant.now());
 		frageRepository.save(frage.get());
 
