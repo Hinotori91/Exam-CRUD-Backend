@@ -71,6 +71,7 @@ public class Antwort_Service {
 						Stream.of(correct.get()),
 						incorrect.stream())
 				.map(Antwort_Service::toAntwortDTO)
+				.sorted((x, y) -> (int) (1 - Math.random()))
 				.toList();
 	}
 
