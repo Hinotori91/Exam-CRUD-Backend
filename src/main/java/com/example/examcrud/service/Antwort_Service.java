@@ -46,14 +46,14 @@ public class Antwort_Service {
 		List<Antwort> antwortList = antwortRepository.findByFrage(frage.get());
 		Collections.shuffle(antwortList);
 
-		if (frage.get().isExamMode()) {
+		if (!frage.get().isExamMode()) {
 			return antwortList.stream()
 					.map(Antwort_Service::toAntwortDTO)
 					.toList();
 		}
 
 		Optional<Antwort> correct = antwortList.stream()
-				.filter(a -> a.isRichtig())
+				.filter(Antwort::isRichtig)
 				.findAny();
 
 		// at least one answer has to be correct!
