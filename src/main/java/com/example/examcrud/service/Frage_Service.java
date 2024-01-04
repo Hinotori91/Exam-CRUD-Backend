@@ -23,8 +23,6 @@ public class Frage_Service {
 	@Autowired
 	Frage_Repository frageRepository;
 	@Autowired
-	Themengebiet_Service themengebietService;
-	@Autowired
 	Themengebiet_Repository themengebietRepository;
 	@Autowired
 	Fach_Repository fachRepository;
@@ -45,7 +43,6 @@ public class Frage_Service {
 					.faecherId(frage.getFaecher().getId())
 					.themengebietId(frage.getThemengebiet().getId())
 					.examMode((frage.isExamMode()))
-//                     .antwortListe(frage.getAntwortListe())
 					.build());
 		}
 
@@ -78,43 +75,65 @@ public class Frage_Service {
 				.build();
 	}
 
-	public SingleFrageDTO getOneFrage(int frageId) {
-		Optional<Frage> frage = frageRepository.findById(frageId);
+	public Add_Frage_Response_DTO duplicateFrage(int frageId) {
+		Frage frage = getFrage(frageId);
 
+		Frage newFrage = Frage.builder()
+				.name(frage.getName())
+				.faecher(frage.getFaecher())
+				.themengebiet(frage.getThemengebiet())
+				.examMode(frage.isExamMode())
+				.build();
+
+		frageRepository.save(newFrage);
+
+		return Add_Frage_Response_DTO.builder()
+				.id(newFrage.getId())
+				.name(newFrage.getName())
+				.fachId(newFrage.getFaecher().getId())
+				.themengebietId(newFrage.getThemengebiet().getId())
+				.examMode(newFrage.isExamMode())
+				.build();
+	}
+
+	public SingleFrageDTO getOneFrage(int frageId) {
+		Frage frage = getFrage(frageId);
 
 		return SingleFrageDTO.builder()
-				.id(frage.get().getId())
-				.name(frage.get().getName())
-				.examMode(frage.get().isExamMode())
+				.id(frage.getId())
+				.name(frage.getName())
+				.examMode(frage.isExamMode())
 				.build();
 	}
 
 	public Update_Frage_Response_DTO updateFrage(Update_Antwort_Request_DTO updateAntwortRequestDto, int frageId) {
-		Optional<Frage> frage = frageRepository.findById(frageId);
+		Frage frage = getFrage(frageId);
 
-		if (frage.isEmpty()) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-		}
-		frage.get().setName(updateAntwortRequestDto.getName());
-		frage.get().setExamMode(updateAntwortRequestDto.getExamMode());
-		frageRepository.save(frage.get());
+		frage.setName(updateAntwortRequestDto.getName());
+		frage.setExamMode(updateAntwortRequestDto.getExamMode());
+		frageRepository.save(frage);
 
 		return Update_Frage_Response_DTO.builder()
-				.id(frage.get().getId())
-				.name(frage.get().getName())
-				.faecherId(frage.get().getFaecher().getId())
-				.themengebietId(frage.get().getThemengebiet().getId())
-				.examMode(frage.get().isExamMode())
+				.id(frage.getId())
+				.name(frage.getName())
+				.faecherId(frage.getFaecher().getId())
+				.themengebietId(frage.getThemengebiet().getId())
+				.examMode(frage.isExamMode())
 				.build();
 	}
 
+
 	public String deleteFrage(int frageId) {
+		frageRepository.delete(getFrage(frageId));
+		return "Erfolgreich gelöscht";
+	}
+
+	private Frage getFrage(int frageId) {
 		Optional<Frage> frage = frageRepository.findById(frageId);
 
 		if (frage.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		frageRepository.delete(frage.get());
-		return "Erfolgreich gelöscht";
+		return frage.get();
 	}
 }

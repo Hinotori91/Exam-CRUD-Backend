@@ -39,6 +39,17 @@ public class Frage_Controller {
 		return new ResponseEntity<>(responseFrageDTO, HttpStatus.OK);
 	}
 
+	@PostMapping("/duplicate/{frageId}")
+	public ResponseEntity<?> duplicateFrage(@PathVariable int frageId) {
+		Add_Frage_Response_DTO responseFrageDTO;
+		try {
+			responseFrageDTO = frageService.duplicateFrage(frageId);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+		}
+		return new ResponseEntity<>(responseFrageDTO, HttpStatus.OK);
+	}
+
 	@PutMapping("/{frageId}")
 	public ResponseEntity<?> updateFrage(@RequestBody Update_Antwort_Request_DTO updateAntwortRequestDto, @PathVariable int frageId) {
 		Update_Frage_Response_DTO updateFrageResponseDto;
