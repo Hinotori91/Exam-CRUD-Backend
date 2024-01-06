@@ -2,9 +2,11 @@ package com.example.examcrud.service;
 
 import com.example.examcrud.dto.AntwortenDTOs.Update_Antwort_Request_DTO;
 import com.example.examcrud.dto.FrageDTOs.*;
+import com.example.examcrud.entity.Antwort;
 import com.example.examcrud.entity.Fach;
 import com.example.examcrud.entity.Frage;
 import com.example.examcrud.entity.Themengebiet;
+import com.example.examcrud.repository.Antwort_Repository;
 import com.example.examcrud.repository.Fach_Repository;
 import com.example.examcrud.repository.Frage_Repository;
 import com.example.examcrud.repository.Themengebiet_Repository;
@@ -22,6 +24,8 @@ public class Frage_Service {
 
 	@Autowired
 	Frage_Repository frageRepository;
+	@Autowired
+	Antwort_Repository antwortRepository;
 	@Autowired
 	Themengebiet_Repository themengebietRepository;
 	@Autowired
@@ -86,6 +90,14 @@ public class Frage_Service {
 				.build();
 
 		frageRepository.save(newFrage);
+
+		antwortRepository.findByFrage(frage).forEach(antwort -> {
+			antwortRepository.save(Antwort.builder()
+					.name(antwort.getName())
+					.richtig(antwort.isRichtig())
+					.frage(newFrage)
+					.build());
+		});
 
 		return Add_Frage_Response_DTO.builder()
 				.id(newFrage.getId())
