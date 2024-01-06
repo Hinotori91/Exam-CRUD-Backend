@@ -67,11 +67,12 @@ public class Antwort_Service {
 				.limit(3)
 				.toList();
 
+		Random r = new Random();
 		return Stream.concat( // merging the correct and the incorrect elements
 						Stream.of(correct.get()),
 						incorrect.stream())
 				.map(Antwort_Service::toAntwortDTO)
-				.sorted((x, y) -> (int) (1 - Math.random()))
+				.sorted((x, y) -> r.nextBoolean() ? -1 : 1)
 				.toList();
 	}
 
