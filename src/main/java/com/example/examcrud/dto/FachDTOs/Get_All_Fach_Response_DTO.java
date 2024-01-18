@@ -10,5 +10,7 @@ import lombok.*;
 public class Get_All_Fach_Response_DTO {
 	private int id;
 	private String name;
+	private Integer countThemengebiete;
+
 }
 

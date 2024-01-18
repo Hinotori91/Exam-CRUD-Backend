@@ -11,6 +11,7 @@ import com.example.examcrud.entity.Frage;
 import com.example.examcrud.entity.Themengebiet;
 import com.example.examcrud.repository.Fach_Repository;
 import com.example.examcrud.repository.Frage_Repository;
+import com.example.examcrud.repository.Themengebiet_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,9 @@ public class Fach_Service {
 	@Autowired
 	Frage_Repository frageRepository;
 
+	@Autowired
+	Themengebiet_Repository themengebietRepository;
+
 	// Neues Fach hinzufügen
 	public Add_Fach_Response_DTO addNewFach(Add_Fach_Request_DTO fachDTO) {
 		Fach fach = Fach.builder().name(fachDTO.getName()).build();
@@ -45,12 +49,14 @@ public class Fach_Service {
 		List<Fach> fachList = fachRepository.findAll();
 		List<Get_All_Fach_Response_DTO> responseList = new ArrayList<>();
 
+
 		for (Fach element : fachList) {
 
 
 			responseList.add(Get_All_Fach_Response_DTO.builder()
 					.id(element.getId())
 					.name(element.getName())
+					.countThemengebiete(themengebietRepository.countByFach(element))
 					.build());
 		}
 		return responseList;

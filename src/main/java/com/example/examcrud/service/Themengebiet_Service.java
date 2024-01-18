@@ -52,6 +52,7 @@ public class Themengebiet_Service {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 
+
 		List<ThemengebietDTO> themengebietListDTO = new ArrayList<>();
 
 		for (Themengebiet tg : themengebietRepository.findByFach(fach.get())) {
@@ -62,6 +63,17 @@ public class Themengebiet_Service {
 		}
 
 		return themengebietListDTO;
+	}
+
+	public Integer countAllThemengebieteFromOneFachId(int fachId){
+		Optional<Fach> fach = fachRepository.findById(fachId);
+
+		if (fach.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+
+		return themengebietRepository.countByFach(fach.get());
+
 	}
 
 	public Get_One_Themengebiet_Response_DTO getSingleThemengebiet(int themengebietId) {

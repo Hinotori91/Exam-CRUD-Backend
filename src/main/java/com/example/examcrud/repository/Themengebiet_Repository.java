@@ -11,4 +11,6 @@ import java.util.List;
 public interface Themengebiet_Repository extends JpaRepository<Themengebiet, Integer> {
 	List<Themengebiet> findByFach(Fach fach);
 
+	int countByFach(Fach fach);
+
 }
