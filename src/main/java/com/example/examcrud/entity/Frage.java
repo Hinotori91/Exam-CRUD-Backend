@@ -18,6 +18,8 @@ public class Frage {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
+	@Column(length=1000)
 	private String name;
 
 	//// Properties für den Algorithmus ////

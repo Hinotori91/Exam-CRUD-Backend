@@ -15,6 +15,7 @@ public class Antwort {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@Column(length=1000)
 	private String name;
 
 	// Mehrere Antworten können eine Frage haben
