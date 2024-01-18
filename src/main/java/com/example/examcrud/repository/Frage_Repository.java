@@ -13,4 +13,6 @@ public interface Frage_Repository extends JpaRepository<Frage, Integer> {
 	List<Frage> findByThemengebiet(Themengebiet themengebiet);
 
 	List<Frage> findByFaecher(Fach fach);
+
+	int countByThemengebiet(Themengebiet themengebiet);
 }

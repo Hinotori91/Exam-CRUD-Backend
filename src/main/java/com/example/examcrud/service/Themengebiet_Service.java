@@ -59,6 +59,7 @@ public class Themengebiet_Service {
 			themengebietListDTO.add(ThemengebietDTO.builder()
 					.id(tg.getId())
 					.name(tg.getName())
+					.countFragen(frageRepository.countByThemengebiet(tg))
 					.build());
 		}
 
